@@ -1,0 +1,111 @@
+<div class="flex-row main-container">
+    <div class="flex-column">
+        <h2 *ngIf="isFull">{{ 'MAX_PLAYER_REACH' | translate }}!</h2>
+        <h2 *ngIf="!isFull">{{ 'WAITING_FOR_PLAYERS' | translate }}...</h2>
+        <div class="flex-row main-row">
+            <div class="players">
+                <div *ngFor="let info of playerInfos; index as i">
+                    <app-avatar *ngIf="info.avatar" [imagePath]="info.avatar"></app-avatar>
+                    {{ info.name }} <span *ngIf="i === 0"> ({{ 'CREATOR' | translate }})</span>
+                    <span *ngIf="info.name === data.playerName"> ({{ 'YOU' | translate }})</span>
+                </div>
+            </div>
+            <fieldset *ngIf="isCreator">
+                <legend>
+                    <h3>{{ 'GAME_SETTINGS' | translate }}</h3>
+                </legend>
+                <div class="params">
+                    <div class="flex-row">
+                        <label for="totaltime">{{ 'GAME_TIME' | translate }} :</label>
+                        <div class="input-div">
+                            <input
+                                #totalTimeInput
+                                type="number"
+                                id="totaltime"
+                                name="totaltime"
+                                [(ngModel)]="totalTime"
+                                [min]="minTotalTime"
+                                [max]="maxTotalTime"
+                                (input)="validateTotalTimeInput()"
+                            />
+                            <span>{{ 'SECONDS' | translate }}</span>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <label for="cheat">{{ 'CHEAT_ACCESS' | translate }}:</label>
+                        <div class="input-div">
+                            <input type="checkbox" id="cheat" name="cheat" [(ngModel)]="canCheat" />
+                            <span>{{ 'AUTHORIZE' | translate }}</span>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <label for="friendsOnly">{{ 'FRIENDS_ONLY' | translate }}:</label>
+                        <div class="input-div">
+                            <input type="checkbox" id="friendsOnly" name="friendsOnly" [(ngModel)]="friendsOnly" (change)="onAccessFriends()" />
+                            <span>{{ 'VALIDATE' | translate }}</span>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <label for="friendsOfFriendsOnly">{{ 'FRIENDS_OF_FRIENDS' | translate }}:</label>
+                        <div class="input-div">
+                            <input
+                                id="friendsOfFriendsOnly"
+                                name="friendsOfFriendsOnly"
+                                type="checkbox"
+                                [(ngModel)]="friendsOfFriends"
+                                (change)="onAccessFriendsOfFriends()"
+                            />
+                            <span>{{ 'VALIDATE' | translate }}</span>
+                        </div>
+                    </div>
+                    <div class="flex-row" *ngIf="data.isLimitedTime">
+                        <label for="addedtime">{{ 'TIME_GAINED' | translate }}:</label>
+                        <div class="input-div">
+                            <input
+                                #addedTimeInput
+                                type="number"
+                                id="addedtime"
+                                name="addedtime"
+                                [(ngModel)]="addedTime"
+                                [min]="minAddedTime"
+                                [max]="maxAddedTime"
+                                (input)="validateAddedTimeInput()"
+                            />
+                            <span>{{ 'SECONDS' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="flex-row bottom-row">
+            <app-paper-button class="exit" name="{{ 'QUIT' | translate }}" (click)="closeDialog()"></app-paper-button>
+            <app-paper-button
+                *ngIf="isEnough && isCreator"
+                class="start"
+                name="{{ 'START_THE_GAME' | translate }}"
+                (click)="startGame()"
+            ></app-paper-button>
+            <div class="warn-message" *ngIf="!isCreator">{{ 'WAIT_START_BY_CREATOR' | translate }}</div>
+            <div class="warn-message" *ngIf="!isEnough && isCreator">{{ 'TWO_MIN_PLAYERS' | translate }}</div>
+        </div>
+    </div>
+    <div class="chat-interaction-zone">
+        <div class="go-back" (click)="toggleChatView()"></div>
+        <app-channel (myOutput)="toggleChatView()" [toggle]="chatView"></app-channel>
+    </div>
+</div>
+<!-- <h2 *ngIf="data.displayMessage === 1">En attente de joueurs</h2>
+<h2 *ngIf="data.displayMessage === 2">En attente d'être accepté dans la partie</h2>
+<div id="waiting-players" class="flex-column">
+    <span class="flex-row" *ngFor="let waitingPlayer of data.waitingPlayers">
+        <h3>{{ waitingPlayer.name }}</h3>
+        <span class="button-container flex-row">
+            <app-paper-button name="Accepter" (click)="validatePlayer(true, waitingPlayer.id, waitingPlayer.name)"></app-paper-button>
+            <app-paper-button name="Rejeter" (click)="validatePlayer(false, waitingPlayer.id, waitingPlayer.name)"></app-paper-button>
+        </span>
+    </span>
+</div> -->
+<img class="green-push-pin top left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin top right" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom right" src="./assets/green_pin.png" draggable="false" />

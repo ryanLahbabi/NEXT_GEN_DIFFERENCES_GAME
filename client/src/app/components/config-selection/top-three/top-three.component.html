@@ -1,0 +1,41 @@
+<h2>TOP 3</h2>
+<div class="scores">
+    <div class="score">
+        <h3>SOLO</h3>
+        <ol>
+            <li>
+                {{ this.soloScores.firstPlace.name
+                }}<span>- {{ this.soloScores.firstPlace.time.minutes * 60 + this.soloScores.firstPlace.time.seconds | formatTime }}</span>
+            </li>
+            <li>
+                {{ this.soloScores.secondPlace.name
+                }}<span>- {{ this.soloScores.secondPlace.time.minutes * 60 + this.soloScores.secondPlace.time.seconds | formatTime }}</span>
+            </li>
+            <li>
+                {{ this.soloScores.thirdPlace.name
+                }}<span>- {{ this.soloScores.thirdPlace.time.minutes * 60 + this.soloScores.thirdPlace.time.seconds | formatTime }}</span>
+            </li>
+        </ol>
+    </div>
+    <div class="score">
+        <h3>1 vs 1</h3>
+        <ol>
+            <li>
+                {{ this.vsScores.firstPlace.name
+                }}<span>- {{ this.vsScores.firstPlace.time.minutes * 60 + this.vsScores.firstPlace.time.seconds | formatTime }}</span>
+            </li>
+            <li>
+                {{ this.vsScores.secondPlace.name
+                }}<span>- {{ this.vsScores.secondPlace.time.minutes * 60 + this.vsScores.secondPlace.time.seconds | formatTime }}</span>
+            </li>
+            <li>
+                {{ this.vsScores.thirdPlace.name
+                }}<span>- {{ this.vsScores.thirdPlace.time.minutes * 60 + this.vsScores.thirdPlace.time.seconds | formatTime }}</span>
+            </li>
+        </ol>
+    </div>
+</div>
+<img class="tape top left" src="./assets/adhesive_tape.png" draggable="false" />
+<img class="tape top right" src="./assets/adhesive_tape.png" draggable="false" />
+<img class="tape bottom left" src="./assets/adhesive_tape.png" draggable="false" />
+<img class="tape bottom right" src="./assets/adhesive_tape.png" draggable="false" />

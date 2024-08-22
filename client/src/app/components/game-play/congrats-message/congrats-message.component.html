@@ -1,0 +1,13 @@
+<div class="congrats-container">
+    <div class="congrats-message">
+        <div class="image-wrapper">
+            <img class="congrats" src="./assets/congrats.png" draggable="false" />
+            <p class="record-beater">{{ chatService.recordBeaterMessage }}</p>
+        </div>
+        <div *ngIf="data.replayIsAvailable" class="row side-by-side">
+            <app-post-it name="Lancer la reprise vidéo" class="replay-post-it post-it" (click)="closePopup(true)"></app-post-it>
+            <app-post-it name="Fermer" class="close-post-it post-it" (click)="closePopup(false)"></app-post-it>
+        </div>
+        <app-post-it name="Fermer" *ngIf="!data.replayIsAvailable" class="close-post-it post-it" (click)="closePopup(false)"></app-post-it>
+    </div>
+</div>

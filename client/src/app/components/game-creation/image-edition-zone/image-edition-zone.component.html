@@ -1,0 +1,29 @@
+<div class="image-zone">
+    <div class="image-tools-zone">
+        <div class="image-tools-section">
+            <h3>{{ 'BACKGROUND' | translate }}</h3>
+            <div class="image-tools">
+                <app-image-picker [imageIndex]="imageIndex" class="tool" matTooltip="Téléverser une image d'arrière-plan"></app-image-picker>
+                <button class="tool" matTooltip="Réinitialiser l'arrière-plan" (click)="clearImage()">
+                    <img src="./assets/reset.png" alt="Réinitialiser" draggable="false" />
+                </button>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="image-tools-section">
+            <h3>{{ 'FOREGROUND' | translate }}</h3>
+            <div class="image-tools">
+                <button class="tool" matTooltip="Dupliquer l'avant-plan" (click)="copyForeground()">
+                    <img src="./assets/copy.png" alt="Dupliquer" draggable="false" />
+                </button>
+                <button class="tool" matTooltip="Réinitialiser l'avant-plan" (click)="clearForeground()">
+                    <img src="./assets/reset.png" alt="Réinitialiser" draggable="false" />
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="canvas-zone">
+        <app-drawing-area [imageIndex]="imageIndex"></app-drawing-area>
+        <img class="background-image" [attr.width]="width" [attr.height]="height" [src]="imageUrl | safeResourceUrl" draggable="false" />
+    </div>
+</div>

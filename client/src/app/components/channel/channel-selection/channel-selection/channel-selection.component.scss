@@ -1,0 +1,252 @@
+@import url('../../root-channel.scss');
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    border-radius: inherit;
+    // background-image: linear-gradient(0deg, transparent calc(100% - var(--header-height)), var(--my-channels-bg-color) var(--header-height));
+    // linear-gradient(90deg, transparent var(--single-border-width), transparent 0),
+    // linear-gradient(90deg, transparent calc(100% - var(--single-border-width)), var(--other-channels-bg-color) var(--single-border-width)),
+}
+
+.channel-container {
+    overflow: scroll;
+    scrollbar-width: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(9px);
+    width: 100%;
+    height: 100%;
+}
+
+.tab-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: var(--header-height);
+    width: 100%;
+    align-items: center;
+}
+
+.change-view {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 50px;
+    width: 50px;
+    display: block;
+    transition: background-size 0.1s;
+}
+
+.change-view:hover {
+    background-size: 93%;
+    transition: background-size 0.1s;
+}
+
+.tab {
+    font-family: Poppins, Arial, sans-serif;
+    width: 46%;
+    height: 50%;
+    border-radius: 5px;
+    text-align: center;
+    color: rgb(247, 247, 247);
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.join-channels-tab {
+    background-color: var(--other-channels-bg-color);
+}
+
+.channel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.287);
+    height: 75px;
+    width: 100%;
+    text-indent: var(--single-border-width);
+    background-color: rgb(255, 255, 255);
+    line-height: 1.4;
+}
+
+.channel-name {
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 22px;
+    color: black;
+    text-overflow: ellipsis;
+}
+
+.channel-host {
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 18px;
+    color: black;
+    text-overflow: ellipsis;
+}
+
+.icon {
+    display: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 30px;
+    border-radius: 50%;
+}
+
+.add-icon {
+    transition: background-size 0.15s, background-color 0.2s;
+    background-size: 89%;
+    height: 50px;
+    width: 50px;
+    background-image: url('../../../../../assets/add.png');
+}
+
+.add-icon:hover {
+    background-color: rgba(255, 255, 255, 0.645);
+    background-size: 100%;
+    transition: background-size 0.15s, background-color 0.3s;
+}
+
+.leave-icon {
+    height: 40px;
+    width: 40px;
+    background-size: 70%;
+    background-image: url('../../../../../assets/leave-channel.png');
+    background-color: rgba(255, 0, 0, 0);
+    filter: invert(0);
+    transition: background-color 0.2s, filter 1s;
+}
+
+.leave-icon:hover {
+    background-color: rgb(0, 191, 255);
+    filter: invert(1);
+    transition: background-color 0.3s;
+}
+
+.channel:hover > .icon {
+    display: block;
+}
+
+.other-channel:hover {
+    background-color: hsla(211, 95%, 58%, 0.1);
+}
+
+.my-channel:hover {
+    background-color: hsla(136, 100%, 50%, 0.1);
+}
+
+.my-channel .channel-name {
+    font-weight: 400;
+    color: rgb(0, 131, 0);
+}
+
+.other-channel .channel-name {
+    font-weight: 400;
+    color: rgb(0, 126, 181);
+}
+
+.search-img {
+    background-image: url('./../../../../../assets/search.png');
+}
+
+.chat-img {
+    background-image: url('./../../../../../assets/chat.png');
+}
+
+.focused-channel {
+    background-color: #e6e6e68b;
+}
+
+.search-bar {
+    overflow: hidden;
+    font-weight: 400;
+    height: 50%;
+    width: 92%;
+    padding-left: 10px;
+    border-radius: 5px;
+    resize: none;
+    background-color: hsla(136, 100%, 50%, 0.05);
+}
+
+.search-bar:focus {
+    background-color: hsla(136, 100%, 50%, 0.15);
+}
+
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 5%;
+    width: 100%;
+}
+
+.create-channel-button {
+    height: 45px;
+    width: 45px;
+    background-color: white;
+    background-size: 110%;
+    border-radius: 50%;
+    background-image: url('./../../../../../assets/add-channel.png');
+}
+
+.create-channel-area {
+    border-radius: 30px 30px 0 0;
+    width: 80%;
+    height: 100%;
+    background-color: var(--my-channels-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.create-channel-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 8%;
+    width: 400px;
+}
+
+.padding {
+    margin-left: 40px;
+}
+
+.padding-l {
+    margin-left: 115px;
+    font-size: 30px;
+}
+
+.create-channel-name {
+    height: 40%;
+    width: 60%;
+    margin-right: 5%;
+    background-color: white;
+    border: none;
+    resize: none;
+    font-weight: 300;
+    font-size: 17px;
+    border-radius: 30px;
+    padding-left: 20px;
+}
+
+.create-channel-name::placeholder {
+    text-align: left;
+}
+
+.space {
+    height: 100px;
+    width: 100%;
+}

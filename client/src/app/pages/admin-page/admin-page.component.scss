@@ -1,0 +1,59 @@
+* {
+    user-select: none;
+}
+
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#page-core {
+    position: relative;
+    gap: 20px;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+    height: fit-content;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    justify-content: space-between;
+    padding: 20px 0;
+    padding-bottom: 100px;
+    height: 60%;
+}
+
+.sidebar .button {
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.sidebar-top .button {
+    width: fit-content;
+    height: fit-content;
+    border: none;
+}
+
+.button img {
+    width: 170px;
+    height: 173px;
+}

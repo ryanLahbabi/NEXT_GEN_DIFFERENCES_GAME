@@ -1,0 +1,54 @@
+<app-top-bar pageTitle="{{ 'CREATE_GAME_ADMIN' | translate }}"></app-top-bar>
+<div class="creation-zone">
+    <div class="top-zone">
+        <app-paper-button class="back" routerLink="/admin" name="{{ 'BACK_ADMIN' | translate }}"></app-paper-button>
+        <app-tool-bar></app-tool-bar>
+        <em> {{ 'FORMAT_DESCRIPTION' | translate }} </em>
+    </div>
+    <div class="images-zone">
+        <div>
+            <h3 class="image-title">{{ 'ORIGINIAL_IMAGE' | translate }}</h3>
+            <app-image-edition-zone [imageIndex]="originalImageIndex"></app-image-edition-zone>
+        </div>
+        <div class="middle-zone">
+            <button id="swap" matTooltip="Intervertir les avant-plans" (click)="swapForegrounds()">
+                <img src="./assets/swap_icon 3.png" alt="Intervertir les avant-plans" draggable="false" />
+            </button>
+        </div>
+        <div>
+            <h3 class="image-title">{{ 'MODIFIED_IMAGE' | translate }}</h3>
+            <app-image-edition-zone [imageIndex]="modifiedImageIndex"></app-image-edition-zone>
+        </div>
+    </div>
+    <div class="configuration-zone">
+        <div class="slider-zone">
+            <label for="radius">{{ 'DIFFERENCES_RADIUS' | translate }}:</label>
+            <div class="slider">
+                <div class="slider-bar">
+                    <input
+                        #sliderInput
+                        type="range"
+                        name="radius"
+                        min="0"
+                        max="3"
+                        value="1"
+                        list="ticks"
+                        (input)="updateDifferenceRadius(sliderInput.value)"
+                    />
+                    <datalist id="ticks">
+                        <option value="0" label="0"></option>
+                        <option value="1" label="3"></option>
+                        <option value="2" label="9"></option>
+                        <option value="3" label="15"></option>
+                    </datalist>
+                </div>
+                <p>
+                    <span class="slider-value">{{ differenceRadius }}</span> pixels
+                </p>
+            </div>
+        </div>
+        <app-paper-button name="{{ 'VALIDATE' | translate }}" (click)="sendDifferenceCalculationRequest()" id="validate-btn"></app-paper-button>
+    </div>
+</div>
+<canvas id="hidden-canvas" #hiddenCanvas [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
+<app-channel-toggle></app-channel-toggle>

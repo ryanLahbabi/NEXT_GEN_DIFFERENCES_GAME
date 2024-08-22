@@ -1,0 +1,61 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+.selection {
+    box-sizing: border-box;
+    position: relative;
+    display: grid;
+    padding: 15px;
+    border: 10px solid red;
+    row-gap: 10px;
+    column-gap: 8px;
+    width: 1408px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.two-by-two {
+    grid-template-columns: 1fr 1fr;
+    height: 710px;
+}
+
+.three-by-two {
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 610px;
+}
+
+.green-push-pin {
+    position: absolute;
+    max-width: 40px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+}
+
+.top {
+    top: -4%;
+}
+
+.bottom {
+    bottom: -1%;
+}
+
+.left {
+    left: -0.5%;
+}
+
+.right {
+    right: -2%;
+}

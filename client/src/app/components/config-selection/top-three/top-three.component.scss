@@ -1,0 +1,97 @@
+:host {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+    line-height: 25px;
+    margin: auto;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 150px;
+    background-color: #faf9f6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.scores {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    gap: 7%;
+    width: 100%;
+    height: 100px;
+}
+
+.score {
+    font-size: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100px;
+}
+
+.score h2 {
+    width: 100%;
+}
+
+.score ol {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 10%;
+    justify-content: left;
+    width: 90%;
+}
+
+.score ol li {
+    width: 100%;
+    display: list-item;
+}
+
+.score li::before {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.score li span {
+    float: right;
+}
+
+.tape {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+}
+
+.left {
+    left: -27px;
+}
+
+.right {
+    right: -27px;
+}
+
+.top {
+    top: -10px;
+}
+
+.bottom {
+    bottom: -10px;
+}
+
+.top.right,
+.bottom.left {
+    transform: rotate(45deg);
+}
+
+.bottom.right,
+.top.left {
+    transform: rotate(135deg);
+}

@@ -1,0 +1,71 @@
+.replay-list-container {
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    max-height: 215px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+    text-align: center;
+}
+
+th,
+td {
+    height: 45px;
+    outline: 1px solid #ddd;
+    color: #333;
+    font-size: 16px;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+}
+
+.delete-col button,
+.delete-col div {
+    background-color: transparent;
+    border: none;
+    height: 47px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.delete-col mat-icon {
+    color: darkblue;
+}
+
+.delete-col button:hover mat-icon {
+    color: rgb(185, 17, 17);
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+tbody {
+    display: block;
+    // max-height: 150px;
+    // overflow-y: auto;
+    // overflow-x: hidden;
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}

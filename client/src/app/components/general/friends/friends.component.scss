@@ -1,0 +1,262 @@
+:host {
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--host-bg-color);
+  background-size: cover;
+  background-attachment: local;
+  width: 1400px;
+  height: 1000px;
+  position: relative;
+  padding-left: 200px;
+  padding-right: 200px; 
+  justify-content: flex-start;
+  gap: 50px;
+  overflow-y: auto;
+}
+
+app-page-title {
+    position: fixed;
+    padding-top: 0px;
+    top: 50px;
+    width: 600px;
+    text-align: right;
+    transform: scale(1.3);
+}
+
+.title {
+    margin: 400px;
+}
+
+.friend-name {
+    margin-left: 150px;
+    font-size: 50px;
+    position: relative;
+    bottom: 30px;
+}
+
+
+.account-button {
+left: 30px;
+height: 1000px;
+width: 1000px ;
+font-size: 15px;
+position: absolute;
+}
+
+.account-button {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    right: 415px;
+    top: 0px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.account-button img{
+    top: 1500px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.account-avatar img{
+    width: 1000px;  
+    height: 1000px; 
+    position: absolute;
+    top: 1500px;
+
+}
+
+
+.search-btn {
+    position: fixed;
+    width: 100px;
+    height: 76px;
+    cursor: pointer;
+    right: 220px;
+}
+
+
+
+.search-container {
+    position: fixed;
+    top: 150px; 
+    left: 280px;
+    width: 1200px;
+    display: flex; 
+    justify-content: space-between;
+    z-index: 100;
+    border-radius: 100%;
+    border-left: 90px;
+}
+
+.input {
+    height: 70px;
+}
+
+.friend-container {
+    top: 10px;
+    left: 0px;
+    position: relative;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   margin-bottom: 5px;
+    padding: 30px;
+    min-height: 70px; 
+    border-radius: 50px;
+
+}
+
+.friend-container-not-friend {
+    background-color: #e0e0e0;
+}
+
+.friend-container-blocked {
+    background-color: rgba(191, 10, 10, 0.662);
+}
+
+.friend-container-friend {
+    background-color: rgb(28, 211, 28);
+}
+
+.friend-container-self {
+    background-color: lightblue;
+}
+
+.friend-container:hover {
+    transform: scale(1.01);
+}
+
+.fa-user-plus {
+    position: absolute;
+    color: #555;
+    font-size: 50px;
+    right: 220px;
+}
+
+.pending-request {
+    position: absolute; 
+    right: 210px;
+    top: 15px;
+}
+
+.pending-request img {
+    width: 100px;
+}
+
+.fa-user-friends {
+    position: absolute;
+    color: rgb(22, 5, 152);
+    font-size: 50px;
+    right: 15px;
+}
+
+.button-text {
+    font-size: 15px;
+}
+
+.fa-user-times {
+    position: absolute;
+    color: rgb(110, 4, 4);
+    font-size: 50px;
+    right: 220px;
+}
+
+.fa-user-lock {
+    position: absolute;
+    font-size: 50px;
+    right: 320px;
+    color: rgb(208, 9, 9); /* Couleur de l'icône */
+}
+
+.fa-unlock {
+    position: absolute;
+    width: 100px;
+    height: 70px;
+    right: 310px;
+}
+
+.fa-user-plus:hover,
+.fa-user-times:hover,
+.fa-user-friends:hover,
+.fa-user-lock:hover,
+.fa-unlock:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.fa-times {
+    position: fixed;
+    font-size: 100px;
+    left: 80px;
+    top: 30px;
+    color: rgb(208, 9, 9); /* Couleur de l'icône */
+    cursor: pointer;
+}
+
+.input,
+.search-btn {
+    flex-grow: 1;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 1000; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.search-container {
+    width: 70%;
+}
+
+.scrollable-content {
+    margin-top: 220px;
+    padding: 20px;
+    height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+.already-friend {
+    position: relative;
+    right: -950px;
+    font-size: 20px;
+    transform: translateY(-50%);
+}
+
+.pending2-request {
+    position: absolute;
+    right: 80px;
+    font-size: 20px;
+}
+
+
+.friend_founded p, .is-friend p {
+    margin-top: 30px; 
+}
+
+// .unique-friend-request.fa-user-plus {
+//     font-size: 4px;  /* Adjust the size as needed */
+// }
+
+button.unique-friend-request.fa.fa-user-plus {
+    font-size: 30px;  /* This is more specific */
+}
+
+.friend-info-wrapper {
+    flex: 1 0 150px; /* Adjust the basis to a suitable width that fits your design */
+    white-space: nowrap; /* Prevents the name from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds an ellipsis if the text is too long */
+}
+

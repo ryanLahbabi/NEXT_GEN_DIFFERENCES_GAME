@@ -1,0 +1,71 @@
+:host {
+    height: 541px;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#canvas {
+    z-index: 0;
+}
+
+.canvas-container {
+    width: 640px;
+    height: 480px;
+    border: 2px solid #76240e;
+    position: relative;
+}
+
+#background-image {
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+#error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.name {
+    display: flex;
+    background-color: #4ba9ff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 51px;
+    width: 100%;
+    border: solid #76240e;
+    border-width: 2px 2px 0px 2px;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+app-differences-found {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+img {
+    image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges; /* Firefox                        */
+    image-rendering: -o-crisp-edges; /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Universal support since 2021   */
+    image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+}

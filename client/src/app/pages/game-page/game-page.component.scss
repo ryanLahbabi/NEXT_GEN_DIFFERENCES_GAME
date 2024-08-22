@@ -1,0 +1,221 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+::ng-deep .mat-tooltip {
+    font-weight: 400;
+    font-size: 0.85rem;
+    white-space: pre-line !important;
+}
+
+:host > .row {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    height: 90%;
+    width: 100%;
+    gap: 1.5%;
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:host > div.row > div.column {
+    height: 100%;
+    gap: 3%;
+}
+
+:host > div.row > div.column:first-child {
+    width: fit-content;
+}
+
+:host > div.row > div.column:last-child {
+    width: 1300px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#left-column {
+    width: 28%;
+}
+
+#card-infos {
+    justify-content: center;
+    width: 515px;
+    background: #ffc0cb;
+}
+
+#card-infos > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#card-infos > div:first-child {
+    width: 180px;
+    font-size: 30px;
+}
+
+#card-infos > div:first-child > p {
+    width: 180px;
+}
+
+#card-infos > div:first-child > p {
+    width: 180px;
+}
+
+#card-infos > div:last-child {
+    width: 305px;
+}
+
+#card-infos h2,
+#card-infos p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 38px;
+}
+
+.value {
+    justify-content: space-between;
+    width: 100%;
+}
+
+#game-infos,
+#card-infos {
+    min-height: 189px;
+    border: 3px solid #000000;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+#game-infos {
+    padding: 10px 20px;
+    width: 100%;
+    background: #ccfcff;
+    justify-content: space-between;
+}
+
+#game-panels {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: space-between;
+}
+
+app-post-it.hint {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    min-width: 84px;
+    min-height: 90px;
+    background-color: #79ea67;
+}
+
+app-post-it#give-up {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #ff5e5e;
+    font-size: 30px;
+    height: 85px;
+    width: 225px;
+}
+
+app-post-it:hover {
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+    transform: rotate(-6deg);
+}
+
+div.hint {
+    width: fit-content;
+    height: fit-content;
+    gap: 25px;
+}
+
+.hint-info {
+    display: inline-block;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3);
+    font-size: 1.6rem;
+}
+
+.hint-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-click {
+    pointer-events: none;
+}
+
+// .chat-interaction-zone {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     height: 535px;
+//     gap: 10px;
+// }
+
+.chat-interaction-zone {
+    background-color: #5fb570;
+    position: relative;
+    width: 100%;
+    height: 700px;
+    border-radius: 40px 40px 40px 40px;
+    z-index: 1;
+}
+
+.go-back {
+    background-image: url('./../../../assets/return.png');
+    top: 25px;
+    left: 25px;
+    background-size: 100%;
+    height: 50px;
+    width: 50px;
+    z-index: 10000;
+    background-position: center;
+    position: absolute;
+    transition: background-size 0.2s;
+    background-repeat: no-repeat;
+}
+
+.chat {
+    background-image: url('./../../../assets/chat.png');
+}
+
+.go-back:hover {
+    background-size: 90%;
+    transition: background-size 0.2s;
+}
+
+.interaction {
+    width: 50%;
+}

@@ -1,0 +1,46 @@
+:host {
+    text-align: justify;
+    position: relative;
+    background-color: #e34e4e;
+    padding: 26px 35px;
+    gap: 30px;
+    max-width: 420px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+app-paper-button {
+    width: 120px;
+    height: 45px;
+}
+
+.green-push-pin {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.top {
+    top: 0.5%;
+}
+
+.bottom {
+    bottom: 0.5%;
+}
+
+.left {
+    left: 0.5%;
+}
+
+.right {
+    right: 0.5%;
+}

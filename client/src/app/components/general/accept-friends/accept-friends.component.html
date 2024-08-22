@@ -1,0 +1,19 @@
+<div class = "color">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<div class="header-fixed">
+<app-page-title [pageTitle]="'PENDING_REQUEST' | translate"></app-page-title>
+</div>
+
+<div class="scrollable-content">
+<div *ngFor="let pendingInvitation of friendService.pendingInvitations" class="friend-container">
+    <span class="friend-name">{{ pendingInvitation }}</span>
+    <button class="check"  src="./assets/green_checkmark.png" (click)="friendService.answerInvitation(pendingInvitation, true)"></button>
+    <button class="dont-accept" src="./assets/reset.png"  (click)="friendService.answerInvitation(pendingInvitation, false)"></button>
+</div>
+
+<div class ="no-pending-invitations" *ngIf="friendService.pendingInvitations.length === 0">
+    <img [src]="pendingRequestPath">
+</div>
+<button id="close" class="fa fa-times" (click)="closeDialog()"></button>
+</div>
+</div>

@@ -1,0 +1,300 @@
+// .main-chat-container {
+//     position: fixed;
+//     bottom: 0;
+//     right: 0;
+//     display: flex;
+//     flex-direction: column;
+//     width: 18%;
+//     box-shadow: 0 0 2px 2px rgba(76, 76, 76, 0.444);
+// }
+// .chat-container {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     width: 100%;
+//     height: 80px;
+//     background-color: white;
+//     overflow: hidden;
+//     z-index: 10;
+//     border-top-left-radius: 10px;
+// }
+// .chat-container:hover {
+//     background-color: #edf6ff;
+// }
+
+// .chat-toggle-button {
+//     border: none;
+//     cursor: pointer;
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     background-color: transparent;
+// }
+// .chat-toggle-button:hover {
+//     background-color: #edf6ff;
+// }
+
+// .ellipsis {
+//     position: absolute;
+//     top: 25%;
+//     right: 90px;
+//     z-index: 10; /* S'assurer que les points sont au-dessus de l'image */
+//     height: 40px;
+//     width: 60px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border: none;
+//     background-color: transparent;
+//     border-radius: 25px;
+// }
+
+// .ellipsis:hover {
+//     background-color: rgb(186, 186, 186);
+// }
+
+// .chat-image {
+//     left: 5%;
+//     top: 7%;
+//     position: absolute;
+//     width: 70px;
+//     height: 70px;
+//     background-color: grey;
+//     z-index: 10;
+//     border-radius: 40px;
+// }
+// .chat-avatar {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 70px;
+//     height: 70px;
+//     border-radius: 35px;
+// }
+// .chat-title {
+//     position: absolute;
+//     left: 30%;
+//     z-index: 10;
+// }
+
+// .chat-content {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     background-color: white;
+//     height: 800px;
+//     z-index: 9;
+//     flex-direction: column;
+// }
+
+// .conversations {
+//     display: flex;
+//     flex-direction: column;
+//     max-height: 100%; /* Adjust based on your design */
+//     overflow-y: auto; /* Scrollable if content overflows */
+//     overflow-x: hidden;
+//     width: 100%;
+// }
+
+// // .conversations {
+// //     position: absolute;
+// //     top: 0; /* Adjust if needed */
+// //     left: 0;
+// //     width: 100%; /* Make sure it doesn't overflow the rectangle */
+// //     display: flex;
+// //     flex-direction: column;
+// //     z-index: 10; /* Higher than the SVG to be on top */
+// //     /* Other styles... */
+// // }
+
+// .conversation-icon {
+//     position: relative;
+//     width: 50px; /* Size of the icon */
+//     height: 50px; /* Size of the icon */
+//     margin-right: 10px; /* Space between icon and details */
+// }
+
+// .conversation-details {
+//     display: flex;
+//     flex-direction: column;
+// }
+
+// .conversation-title {
+//     font-weight: bold;
+// }
+
+// .conversation-last-message {
+//     color: #666; /* Grey text for last message */
+// }
+
+// .message__text {
+//     background-color: #eaeaea;
+//     border-radius: 10px;
+//     padding: 5px 10px;
+//     word-wrap: break-word;
+//     word-break: break-all;
+//     white-space: pre-wrap;
+//     font-family: inherit;
+// }
+
+// .conversation-button {
+//     background: none;
+//     border: none;
+//     width: 100%;
+//     text-align: left;
+//     padding: 10px;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+//     z-index: 1;
+//     position: relative;
+// }
+
+// .conversation-button:hover,
+// .conversation-button:focus {
+//     background-color: #c7e4ff; /* Highlight effect on hover/focus */
+// }
+// .chatbox-container {
+//     position: absolute;
+//     top: 440px; /* Adjust top position as needed */
+//     left: -480px; /* Adjust right position as needed */
+//     display: flex;
+//     flex-direction: row-reverse; /* Display chatboxes from right to left */
+//     z-index: 9999; /* Ensure chatboxes are above other content */
+//     width: 2000px;
+// }
+// .chatbox {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-end;
+//     background-color: white;
+//     color: var(--text-color);
+//     white-space: nowrap;
+//     width: 450px;
+//     min-height: 531px;
+//     align-items: center;
+//     border-top-left-radius: 20px;
+//     border-top-right-radius: 10px;
+//     max-height: 500px;
+//     overflow-y: auto;
+//     padding-right: 0px;
+//     overflow-x: hidden;
+//     box-shadow: 0 0 2px 2px rgba(76, 76, 76, 0.444);
+//     right: 0; /* Position from the right side */
+//     z-index: 10;
+//     position: relative;
+// }
+// .chatbox-box {
+//     position: relative;
+// }
+// .chatbox-size {
+//     width: 450px;
+//     min-height: 500px;
+// }
+// .chatbox__messages {
+//     display: flex;
+//     flex-direction: column-reverse;
+//     overflow-y: auto;
+//     overflow-x: hidden;
+//     max-height: 350px; /* Ajustez en fonction de la hauteur désirée */
+//     width: calc(100% - 20px); /* Assume un padding total horizontal de 20px */
+//     padding: 10px;
+//     box-sizing: border-box; /* Inclut le padding dans la largeur */
+// }
+
+// .message__received {
+//     background-color: skyblue;
+// }
+
+// .message__text {
+//     background-color: #eaeaea;
+// }
+
+// .message__received,
+// .message__text {
+//     word-wrap: break-word;
+//     word-break: break-all;
+//     white-space: pre-wrap;
+//     border-radius: 10px;
+//     padding: 5px 10px;
+//     margin-bottom: 10px;
+//     text-align: left;
+//     max-width: 100%;
+//     width: 100%; /* Force les messages à occuper toute la largeur */
+//     box-sizing: border-box;
+// }
+
+// /* Pour Firefox */
+// .chatbox__messages {
+//     scrollbar-width: thin;
+//     scrollbar-color: #888 #f1f1f1;
+// }
+
+// .chatbox__input label {
+//     margin-right: 10px;
+//     word-wrap: break-word;
+//     word-break: break-all;
+// }
+
+// input.chatbox__input[type='text'] {
+//     position: relative;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     padding: 5px 10px;
+//     background-color: #f1f1f1;
+//     border: 1px solid #ccc;
+//     width: 96%;
+//     height: 50px;
+//     word-wrap: break-word;
+//     word-break: break-all;
+// }
+
+// .message__time {
+//     font-family: 'Roboto', sans-serif;
+//     right: 150px;
+// }
+// .chatbox-nav {
+//     position: absolute;
+//     bottom: 450px;
+//     right: 20px;
+//     z-index: -999;
+// }
+// .conversation-close-box {
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+//     width: 50px; /* Ajuster la largeur */
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 10px;
+//     z-index: 999;
+// }
+// .conversation-add-box {
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+//     position: absolute; /* Position absolue par rapport à son parent relatif */
+//     right: 100px;
+//     top: 10px;
+//     width: 50px; /* Ajuster la largeur */
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 10px;
+// }
+
+// .conversation-button {
+//     width: 100%; /* Fait en sorte que l'image occupe toute la largeur du bouton */
+//     height: auto; /* Maintient le ratio de l'image */
+// }
+// .conversation-add-box:hover {
+//     background-color: #c7e4ff;
+// }
+// .conversation-close-box:hover {
+//     background-color: #c7e4ff;
+// }

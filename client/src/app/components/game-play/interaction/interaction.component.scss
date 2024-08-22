@@ -1,0 +1,57 @@
+:host {
+    background-color: khaki;
+    border: black 3px solid;
+    border-radius: 5px;
+    padding: 10px;
+    height: 120px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+label,
+select {
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.col {
+    flex-basis: 50%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.button {
+    width: 75%;
+    align-self: flex-end;
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #e6af1b;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button:hover {
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+    transform: rotate(-6deg);
+}
+
+mat-spinner {
+    margin-right: 20px;
+}

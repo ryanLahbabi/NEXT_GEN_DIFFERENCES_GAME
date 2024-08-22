@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 14px 70px 14px 70px;
+    box-sizing: border-box;
+}
+
+::ng-deep .mat-tooltip {
+    font-weight: 400;
+    font-size: 0.85rem;
+    white-space: pre-line !important;
+}
+
+app-post-it {
+    position: relative;
+    height: 70px;
+    width: 66px;
+    background-color: #f1f1f1;
+    justify-content: flex-end;
+}
+
+app-post-it:hover {
+    transform: rotate(-6deg);
+}

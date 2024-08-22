@@ -1,0 +1,110 @@
+:host {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../../../assets/history_background.jpg');
+    align-items: center;
+    background-size: cover;
+    width: 1400px;
+    height: 100%;
+    padding: 40px;
+    gap: 40px;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+#top {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    position: relative;
+    min-width: fit-content;
+    width: 260px;
+    height: 80px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+app-post-it {
+    font-size: 30px;
+}
+
+app-post-it.button:first-of-type {
+    background-color: #ea7000;
+}
+
+app-post-it.button:last-of-type {
+    background-color: #a73030;
+}
+
+table {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-spacing: 30px 10px;
+    text-align: center;
+    width: 1100px;
+    height: 100%;
+    border-collapse: collapse;
+    overflow-y: hidden;
+}
+
+tbody,
+thead {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+tbody {
+    height: 100%;
+    padding: 10px 0;
+    border: 5px solid black;
+    overflow-y: scroll;
+}
+
+tr {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+tr > td,
+tr > th {
+    display: block;
+    width: 16.667%;
+}
+
+tr > td:first-child,
+tr > th:first-child {
+    width: 25%;
+}
+
+.winner_1,
+.winner_2 {
+    font-weight: bold;
+}
+
+.deserter_1,
+.deserter_2 {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+}
+
+.beginning {
+    position: relative;
+    word-wrap: break-word;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: rotate(-6deg);
+}

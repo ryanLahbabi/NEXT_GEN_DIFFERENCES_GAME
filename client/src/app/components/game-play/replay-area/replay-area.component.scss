@@ -1,0 +1,198 @@
+:host {
+    position: relative;
+    height: 130px;
+    display: block;
+    background-color: rgba(255, 248, 235, 0.9);
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 3px 4px 2px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+#control-buttons-zone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: fit-content;
+    gap: 20px;
+}
+
+.control-btn img {
+    width: 100%;
+    height: 100%;
+}
+
+.control-btn {
+    width: 70px;
+    height: 70px;
+    margin: auto 0;
+    position: relative;
+    filter: drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.4));
+}
+
+.hovering-btn:hover:not(.deactivated-btn):not(.selected) {
+    cursor: pointer;
+    transform: scale(1.04);
+}
+
+.deactivated-btn {
+    opacity: 50%;
+    filter: saturate(50%);
+}
+
+#progress-zone {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+}
+
+#progress-zone {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    padding: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+}
+
+.progress-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    background: #ddd;
+    background: linear-gradient(to right, #4CAF50 0%, #8BC34A 100%);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.progress-bar:hover {
+    opacity: 1;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #4CAF50;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.progress-bar::-webkit-slider-thumb:hover {
+    background: #4CAF50;
+}
+
+.progress-bar::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #4CAF50;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.progress-bar::-moz-range-thumb:hover {
+    background: #4CAF50;
+}
+
+#speed-zone {
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.speed-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.speed-btn:not(.selected) {
+    box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.speed-btn {
+    background-color: #fcdbfc;
+    justify-content: center;
+    height: 40px;
+    width: 50px;
+    border: none;
+    position: relative;
+}
+
+app-post-it:hover {
+    transform: rotate(-5deg);
+}
+
+.selected {
+    background-color: #d99fd9;
+    text-decoration: underline 3px;
+}
+
+app-post-it#quit-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #ff5e5e;
+    font-size: 30px;
+    height: 60px;
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+app-post-it#save-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #4CAF50;
+    font-size: 20px;
+    height: 60px;
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+
+#speed-zone {
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.speed-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.speed-btn:not(.selected) {
+    box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.speed-btn {
+    background-color: #fcdbfc;
+    justify-content: center;
+    height: 40px;
+    width: 50px;
+    border: none;
+    position: relative;
+}
+
+app-post-it:hover {
+    transform: rotate(-5deg);
+}
+
+.selected {
+    background-color: #d99fd9;
+    text-decoration: underline 3px;
+}

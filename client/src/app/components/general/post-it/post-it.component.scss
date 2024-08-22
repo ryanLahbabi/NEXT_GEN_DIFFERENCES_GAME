@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+    transition: transform 0.125s linear;
+    padding: 5px;
+}
+
+#title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 80%;
+    height: fit-content;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+#title > * {
+    height: 100%;
+    font-weight: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+}
+
+img#pin {
+    position: absolute;
+    top: 2%;
+    max-height: 30px;
+    max-width: 30px;
+    height: 25%;
+}

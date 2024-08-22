@@ -1,0 +1,33 @@
+<app-page-title class="title" [pageTitle]=" 'REPLAY' | translate "></app-page-title>
+<div class="row">
+    <div id="control-buttons-zone">
+        <a (click)="restart()" class="control-btn hovering-btn">
+            <img src="./assets/restart.png" />
+        </a>
+        <a *ngIf="!paused" [ngClass]="{ 'deactivated-btn': ended }" (click)="pause()" class="control-btn hovering-btn">
+            <img src="./assets/pause.png" />
+        </a>
+        <a *ngIf="paused" class="control-btn hovering-btn" (click)="resume()">
+            <img src="./assets/resume.png" />
+        </a>
+    </div>
+    <div id="progress-zone">
+        <input type="range" class="progress-bar" [value]="progress" (change)="onProgressBarClick($event)" min="0" max="100" aria-label="Replay Progress">
+    </div>
+    <div id="speed-zone" class="column">
+        <h3>{{ 'READ_SPEED' | translate }}</h3>
+        <div class="speed-buttons">
+            <app-post-it
+                class="speed-btn"
+                [ngClass]="{ selected: speed === speeds.NORMAL }"
+                name="x1"
+                (click)="selectSpeed(speeds.NORMAL)"
+            ></app-post-it>
+            <app-post-it class="speed-btn" [ngClass]="{ selected: speed === speeds.X2 }" name="x2" (click)="selectSpeed(speeds.X2)"></app-post-it>
+            <app-post-it class="speed-btn" [ngClass]="{ selected: speed === speeds.X4 }" name="x4" (click)="selectSpeed(speeds.X4)"></app-post-it>
+        </div>
+    </div>
+</div>
+<app-post-it id="quit-btn" name="{{ 'QUIT' | translate }}" (click)="exit()"></app-post-it>
+<app-post-it id="save-btn" *ngIf="showSaveButton" name="{{ 'SAVE_REPLAY' | translate }}" (click)="save()"></app-post-it>
+

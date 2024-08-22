@@ -1,0 +1,63 @@
+:host {
+    background-color: #6201ff;
+    padding: 20px;
+    width: 700px;
+    height: 800px;
+}
+
+.congrats-container {
+    position: relative;
+    width: 700px;
+    height: 300px;
+    top: 10px;
+}
+
+.winner {
+    color: rgba(64, 0, 255, 0.821);
+    font-size: 150px;
+    text-align: center;
+}
+.congrats-message {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    width: 90%;
+
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.congrats {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.post-it {
+    position: relative;
+    font-size: 30px;
+    justify-content: center;
+    height: 110px;
+}
+
+.close-post-it {
+    background-color: #ff5e5e;
+}
+
+.replay-post-it {
+    background-color: #84b4df;
+}
+
+.post-it:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+}
+
+#winner {
+    color: rgb(0, 81, 255);
+}

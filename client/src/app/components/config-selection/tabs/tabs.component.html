@@ -1,0 +1,8 @@
+<div class="tabs">
+    <div class="tab" *ngFor="let tab of tabs" [ngStyle]="{ backgroundColor: tab.color }" (click)="activateTab(tab)" [class.active]="tab.active">
+        {{ tab.name }}
+    </div>
+</div>
+<div class="container" [ngStyle]="{ backgroundColor: activeTab.color }">
+    <ng-content></ng-content>
+</div>

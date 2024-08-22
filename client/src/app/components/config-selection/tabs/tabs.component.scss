@@ -1,0 +1,39 @@
+.container {
+    padding: 30px 30px 10px;
+    border-radius: 20px;
+    box-shadow: 3px 6px 8px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 55px;
+    z-index: 2;
+    width: 1408px;
+    height: 788px;
+    display: flex;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}
+
+.tab {
+    padding: 15px 0 25px;
+    text-align: center;
+    width: 450px;
+    font-size: 1.5rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.tab.active {
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.tab:not(.active) {
+    filter: brightness(60%);
+}
+
+.tab:not(.active):hover {
+    filter: brightness(75%);
+}

@@ -1,0 +1,7 @@
+<div class="box">
+    <h1 mat-dialog-title>{{ 'CONFIRM_DELETE' | translate }}</h1>
+    <div mat-dialog-actions>
+        <button mat-button title="Cancel action" (click)="onNoClick()">{{ 'NO' | translate }}</button>
+        <button mat-button color="warn" title="Confirm action" (click)="onYesClick()">{{ 'YES' | translate }}</button>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<app-top-bar [pageTitle]="'ADMIN_GAME' | translate" style="width: 100%"></app-top-bar>
+<div id="page-core" class="row">
+    <app-carousel-view [type]="adminCarouselType"></app-carousel-view>
+    <div class="sidebar">
+        <a class="button" routerLink="/creation" draggable="false">
+            <img id="create-game" [src]="createGamePath" />
+        </a>
+        <a class="button" (click)="deleteAllGames()" draggable="false">
+            <img id="create-game" [src]="deleteGamePath" />
+        </a>
+    </div>
+</div>
+
+<app-channel-toggle></app-channel-toggle>

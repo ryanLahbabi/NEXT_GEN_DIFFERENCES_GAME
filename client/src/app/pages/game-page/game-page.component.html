@@ -1,0 +1,88 @@
+<app-replay-area *ngIf="isReplaying()"></app-replay-area>
+<div class="row">
+    <div id="left-column" class="column">
+        <div id="card-infos" class="row">
+            <div class="card-info">
+                <h2>{{ gameName }}</h2>
+                <p *ngIf="isLimitedTime">{{ 'MAIN_LIMITED' | translate }}</p>
+                <p *ngIf="!isLimitedTime">{{ 'MAIN_CLASSIC' | translate }}</p>
+                <p *ngIf="!isLimitedTime">{{ difficulty }}</p>
+            </div>
+            <div class="column game-info">
+                <div class="row value">
+                    <p>{{ 'TOTAL_DIFFERENCES' | translate }}:</p>
+                    <p>{{ totalDifferences }}</p>
+                </div>
+                <div class="row value">
+                    <p>{{ 'GAME_TIME' | translate }}:</p>
+                    <p *ngIf="gameValues">{{ gameValues.timerTime }}s</p>
+                </div>
+                <div *ngIf="isLimitedTime" class="row value">
+                    <p>{{ 'BONUS_DIFFERENCES' | translate }}:</p>
+                    <p>{{ gameValues.gainedTime }}s</p>
+                </div>
+                <div class="row value">
+                    <p>{{ 'OBSERVATORS_NUMBER' | translate }}:</p>
+                    <p>{{ numberOfObservers }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-interaction-zone" *ngIf="!isReplaying()">
+            <div class="go-back" (click)="toggleChatView()"></div>
+            <app-channel (myOutput)="toggleChatView()" [toggle]="chatView"></app-channel>
+        </div>
+    </div>
+    <div class="column">
+        <div id="game-infos" class="row">
+            <app-chronometer-container></app-chronometer-container>
+            <hr />
+            <app-display-score [playerScores]="playerScores" [isObserving]="isObserving"></app-display-score>
+            <!-- <hr *ngIf="!isMultiplayerGame()" />
+            <div *ngIf="!isMultiplayerGame()" class="hint-zone" [ngClass]="{ 'no-click': isReplaying() }">
+                <div class="row hint">
+                    <app-display-hints></app-display-hints>
+                    <app-post-it class="hint button" image="./assets/ampoule-a-incandescence.png" (click)="requestHint()"></app-post-it>
+                </div>
+                <span
+                    class="hint-info"
+                    matTooltip="Chaque indice s'affiche pendant {{ hintDuration }} secondes.
+                    Les trois indices sont, dans l'ordre:
+                        1. Un cadran dans lequel se trouve au moins une des différences.
+                        2. Un sous-cadran (1/16) dans lequel se trouve au moins une des différences.
+                        3. Trois petites zones parmi lesquelles une zone contient une des différence et les deux autres sont aléatoires."
+                    >?</span
+                >
+            </div> -->
+            <hr *ngIf="!isReplaying()" />
+            <app-post-it
+                *ngIf="!isReplaying() && isObserving"
+                id="give-up"
+                class="button"
+                [name]="'QUIT' | translate"
+                (click)="toggleGiveUp()"
+            ></app-post-it>
+            <app-post-it
+                *ngIf="!isReplaying() && !isObserving"
+                id="give-up"
+                class="button"
+                [name]="'GIVE_UP' | translate"
+                (click)="toggleGiveUp()"
+            ></app-post-it>
+        </div>
+        <div id="game-panels" class="row" [ngClass]="{ 'no-click': isReplaying() }">
+            <app-play-area
+                [isModified]="false"
+                [backgroundImageUrl]="originalUrl"
+                name="{{ 'ORIGINIAL_IMAGE' | translate }}"
+                [isObserving]="isObserving"
+            ></app-play-area>
+            <app-play-area
+                [isModified]="true"
+                [backgroundImageUrl]="modifiedUrl"
+                name="{{ 'MODIFIED_IMAGE' | translate }}"
+                [isObserving]="isObserving"
+            ></app-play-area>
+        </div>
+        <app-interaction class="interaction" [playerNames]="playerNames" *ngIf="isObserving"></app-interaction>
+    </div>
+</div>

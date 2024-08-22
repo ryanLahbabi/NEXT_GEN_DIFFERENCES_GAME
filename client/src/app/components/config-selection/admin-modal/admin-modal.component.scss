@@ -1,0 +1,73 @@
+:host {
+    box-sizing: border-box;
+    background-color: #e67add;
+    padding: 25px 45px;
+    margin: auto;
+    position: relative;
+    min-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.green-push-pin {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.buttons {
+    position: relative;
+    justify-content: center;
+    gap: 80px;
+}
+
+.buttons > .row {
+    width: fit-content;
+    gap: 15px;
+}
+
+app-paper-button {
+    width: 120px;
+    height: 45px;
+}
+
+.row {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.top {
+    top: -0.5%;
+}
+
+.bottom {
+    bottom: 0.5%;
+}
+
+.left {
+    left: 0.5%;
+}
+
+.right {
+    right: -0.5%;
+}
+
+#userInput {
+    width: 200px;
+    margin: 30px;
+    padding: 5px;
+}
+
+.error-message {
+    background-color: rgba(234, 194, 194, 0.69);
+    color: rgb(187, 8, 8);
+    padding: 5px 20px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 40px;
+}

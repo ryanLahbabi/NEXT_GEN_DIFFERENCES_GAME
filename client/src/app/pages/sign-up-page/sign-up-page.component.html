@@ -1,0 +1,84 @@
+<div class="sign-up-container">
+    <div class="sign-up-form-container">
+        <img src="./assets/push_pin.png" alt="" class="sign-up-pin" />
+        <div class="sign-up-text-title">{{ 'SIGNUP_TITLE' | translate }}</div>
+        <form class="sign-up-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <input
+                type="text"
+                name="username"
+                minlength="3"
+                [placeholder]="'SIGNUP_PLACEHOLDERUSER' | translate"
+                class="sign-up-username"
+                #usernameCheck="ngModel"
+                [(ngModel)]="username"
+                required
+            />
+            <div [hidden]="usernameCheck.valid || usernameCheck.pristine || !username" class="input-error">
+                {{ 'SIGNUP_USERERROR' | translate }}
+            </div>
+
+            <input
+                type="email"
+                name="email"
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                [placeholder]="'SIGNUP_PLACEHOLDEREMAIL' | translate"
+                class="sign-up-email"
+                #emailCheck="ngModel"
+                [(ngModel)]="email"
+                required
+            />
+            <div [hidden]="emailCheck.valid || emailCheck.pristine || !email" class="input-error">{{ 'SIGNUP_EMAILERROR' | translate }}</div>
+
+            <input
+                type="password"
+                name="password"
+                minlength="8"
+                pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).+$"
+                [placeholder]="'SIGNUP_PLACEHOLDERPASSWORD' | translate"
+                class="sign-up-password"
+                #passwordCheck="ngModel"
+                [(ngModel)]="password"
+                required
+            />
+            <div [hidden]="passwordCheck.valid || passwordCheck.pristine || !password" class="input-error">
+                {{ 'SIGNUP_ERRORPASSWORD' | translate }}
+            </div>
+
+            <div class="gap"></div>
+
+            <button mat-raised-button class="sign-up-button" [disabled]="!loginForm.form.valid">{{ 'SIGNUP_CREATEBUTTON' | translate }}</button>
+            <div class="sign-up-account-container">
+                <a class="sign-up-create-account" routerLink="/login">{{ 'SIGNUP_EXISTINGACCOUNT' | translate }}</a>
+            </div>
+        </form>
+
+        <div class="row avatar-row">
+            <div class="col avatar-col">
+                <h4 class="avatar-title">{{ 'CHOOSE_AVATAR' | translate }}:</h4>
+                <app-avatar [imagePath]="avatar" outlineColor="black" class="avatar"></app-avatar>
+            </div>
+            <div class="col avatar-col">
+                <div class="account-image-container">
+                    <a (click)="chooseAvatar('avatar_placeholder')" class="avatar-choice">
+                        <img class="predefined-avatar" src="assets/avatar-default.jpeg" alt="" />
+                    </a>
+                    <div class="predefined-images-container">
+                        <a *ngFor="let image of carouselImages" (click)="chooseAvatar(image)" class="avatar-choice">
+                            <img class="predefined-avatar" [src]="image" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <button (click)="clickOnImageInput()" class="upload">
+                    <div class="row">
+                        <mat-icon aria-hidden="false" fontIcon="add_photo_alternate"></mat-icon>
+                        {{ 'UPLOAD_IMAGE' | translate }}
+                    </div>
+                </button>
+            </div>
+            <input type="file" accept="image/*" name="" id="image-input" #imageInput (change)="updateImageUrl()" />
+        </div>
+    </div>
+</div>
+<div class="error-message" [ngClass]="{ 'visible-error': errorMessage }">
+    {{ errorMessage | translate }}
+</div>

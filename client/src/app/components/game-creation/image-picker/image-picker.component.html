@@ -1,0 +1,4 @@
+<button (click)="clickOnImageInput()">
+    <img src="./assets/upload.png" alt="Téléverser une image" draggable="false" />
+</button>
+<input type="file" accept=".bmp" name="" id="image-input" #imageInput (change)="updateImageUrl()" />

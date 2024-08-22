@@ -1,0 +1,16 @@
+<div [ngClass]="'selection ' + (isTwoByTwo ? 'two-by-two' : 'three-by-two')">
+    <app-game-select
+        *ngFor="let game of getDisplayedItems()"
+        [type]="type"
+        [game]="game"
+        [difficulty]="this.getDifficulty(game.difficulty)"
+    ></app-game-select>
+    <img class="green-push-pin top left" src="./assets/green_pin.png" draggable="false" />
+    <img class="green-push-pin top right" src="./assets/green_pin.png" draggable="false" />
+    <img class="green-push-pin bottom left" src="./assets/green_pin.png" draggable="false" />
+    <img class="green-push-pin bottom right" src="./assets/green_pin.png" draggable="false" />
+</div>
+<div class="footer">
+    <app-arrow-game-selection #leftButton (buttonClick)="goLeft()" [activated]="canGoLeft()" [flip]="true"></app-arrow-game-selection>
+    <app-arrow-game-selection #rightButton (buttonClick)="goRight()" [activated]="canGoRight()" [flip]="false"></app-arrow-game-selection>
+</div>

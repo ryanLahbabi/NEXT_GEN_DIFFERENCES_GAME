@@ -1,0 +1,111 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--host-bg-color);
+  background-size: cover;
+  background-attachment: local;
+  width: 1400px;
+  height: 1000px;
+  position: relative;
+  padding-left: 357px;
+  padding-right: 40px;
+  padding-top: 180px; 
+  padding-bottom: 40px;
+  justify-content: flex-start;
+  gap: 50px;
+  overflow-y: auto;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 1000; /* S'assure que l'en-tête reste au-dessus du contenu défilant */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+app-page-title {
+    position: fixed;
+    padding-top: 0px;
+    top: 50px;
+    width: 600px;
+    text-align: right;
+    transform: scale(1.3);
+}
+
+.fa-times {
+    position: fixed;
+    font-size: 100px;
+    left: 80px;
+    top: 30px;
+    color: rgb(208, 9, 9);
+    cursor: pointer;
+}
+
+.friend-container {
+    position: relative;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e0e0e0;
+    margin-bottom: 25px;
+    padding: 30px;
+}
+
+.check,
+.dont-accept {
+    font-size: 100px;
+    width: 90px;
+    height: 90px;
+    border: none;
+    cursor: pointer;
+    background-size: contain;
+    background-color: #e0e0e0;
+
+    background-repeat: no-repeat;
+}
+
+.check {
+    background-image: url('../../../../assets/green_checkmark.png');
+    right: 140px;
+}
+
+.dont-accept {
+    background-image: url('../../../../assets/reset.png');
+    right: 20px;
+}
+
+.friend-container:hover {
+    transform: scale(1.01);
+}
+
+.check:hover,
+.dont-accept:hover {
+    filter: brightness(120%);
+}
+
+.scrollable-content {
+    margin-top: -50px; /* Espace pour l'en-tête fixe, ajustez selon la hauteur de votre en-tête */
+    padding: 20px;
+    height: calc(100vh - 250px); /* Hauteur totale de la fenêtre moins l'en-tête */
+    overflow-y: auto;
+}
+
+.no-pending-invitations {
+    position: absolute;
+    left: 450px;
+    top: 20px;
+}
+
+.no-pending-invitations img {
+    position: absolute;
+    left: 0px;
+    top: -70px;
+    width: 1000px;
+}

@@ -1,0 +1,5 @@
+<img *ngIf="flashingDifferenceUrl" [src]="flashingDifferenceUrl | safeResourceUrl" alt="" draggable="false" />
+<img *ngFor="let url of flashingDifferencesUrls" [src]="url | safeResourceUrl" alt="" draggable="false" />
+<div *ngIf="isModified">
+    <img *ngFor="let url of originalDifferencesUrls" [src]="url | safeResourceUrl" alt="" draggable="false" />
+</div>

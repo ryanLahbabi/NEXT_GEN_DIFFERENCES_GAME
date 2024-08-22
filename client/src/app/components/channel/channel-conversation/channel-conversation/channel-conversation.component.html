@@ -1,0 +1,40 @@
+<div class="main">
+    <div class="tab-container">
+        <p class="channel-name">{{ channelName }}</p>
+    </div>
+    <app-gif *ngIf="gifView" class="gif-container" (closeThis)="closeGif()"></app-gif>
+
+    <section *ngIf="!gifView" id="message-container" #test>
+        <div class="message-box" *ngFor="let message of getMessages()">
+            <img class="their-avatar" *ngIf="!message.sentByMe" [src]="getAvatar(message)" />
+            <div class="message" [ngClass]="getMessageClass(message)">
+                <div [innerHTML]="message.content"></div>
+                <div class="message-info" [ngClass]="getMessageInfoClass(message)">
+                    <div *ngIf="!message.sentByMe" class="sender-name">{{ message.sender }}</div>
+                    <div class="time">{{ getTime(message) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="space"></div>
+    </section>
+    <form *ngIf="!gifView" class="message-egress-container" [ngClass]="{ 'lone-container': lone }">
+        <div class="send-message-box">
+            <div class="send-message-content">
+                <div class="gif-toggle-button" (click)="openGif()"></div>
+                <textarea
+                    role="textbox"
+                    [(ngModel)]="messageText"
+                    (input)="updateSeachFieldSize()"
+                    class="send-message-text"
+                    placeholder="Type your message here..."
+                    name="message-to-send"
+                    id="send-message-text"
+                    (keydown.enter)="handleEvent($event)"
+                    (keyup.enter)="send()"
+                    required
+                ></textarea>
+            </div>
+            <button class="send-button" (click)="send()"></button>
+        </div>
+    </form>
+</div>

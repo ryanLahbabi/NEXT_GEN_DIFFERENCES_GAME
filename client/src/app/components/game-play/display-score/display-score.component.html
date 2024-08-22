@@ -1,0 +1,13 @@
+<h2>{{ 'DIFFERENCES_FOUND' | translate }}</h2>
+<div [ngClass]="{ colored: isLimitedTimeMode(), large: isLimitedTimeMode(), content: !isLimitedTimeMode() }">
+    <div class="container">
+        <div *ngFor="let playerScore of playerScores; index as i" [ngClass]="{ colored: !isLimitedTimeMode() }">
+            <p>{{ playerScore.name }} <span *ngIf="i === 0 && !isObserving">{{ 'YOU' | translate }}</span></p>
+            <i *ngIf="!isLimitedTimeMode()">{{ playerScore.score }}/{{ differencesLeft }}</i>
+        </div>
+    </div>
+    <i *ngIf="isLimitedTimeMode()">
+        {{ gameService.differencesFoundTotal }} <ng-container *ngIf="gameService.differencesFoundTotal < 2">{{ 'DIFFERENCES_FOUND' | translate }}</ng-container>
+        <ng-container *ngIf="gameService.differencesFoundTotal >= 2">{{ 'DIFFERENCES_FOUND' | translate }}</ng-container>
+    </i>
+</div>

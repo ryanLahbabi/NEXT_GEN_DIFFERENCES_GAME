@@ -1,0 +1,17 @@
+<div *ngIf="data.warning === 0">
+    <h3 class="modal-body">Le jeu que vous avez sélectionné a été suprimé</h3>
+</div>
+<div *ngIf="data.warning === 1">
+    <h3 class="modal-body">Le joueur que vous tentez de rejoindre a refusé de jouer avec vous</h3>
+</div>
+<div *ngIf="data.warning === 2">
+    <h3 class="modal-body">Erreur de connexion avec le serveur</h3>
+</div>
+<div *ngIf="data.warning === 3">
+    <h3 class="modal-body">Il n'y a plus de cartes de jeu!!! Créez en une pour jouer...</h3>
+</div>
+<app-paper-button name="Ok" (click)="closeDialog()"></app-paper-button>
+<img class="green-push-pin top left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin top right" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom right" src="./assets/green_pin.png" draggable="false" />

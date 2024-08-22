@@ -1,0 +1,90 @@
+<button class="tool" [ngClass]="{ deactivated: !undoIsPossible }" matTooltip="{{ 'CANCEL' | translate }}" (click)="undo()" draggable="false">
+    <img src="./assets/undo-arrow.png" alt="Annuler" draggable="false" />
+</button>
+<button class="tool" [ngClass]="{ deactivated: !redoIsPossible }" matTooltip="{{ 'REDO' | translate }}" (click)="redo()">
+    <img src="./assets/undo-arrow.png" style="transform: scaleX(-1)" alt="Refaire" draggable="false" />
+</button>
+
+<hr />
+
+<div class="tool" matTooltip="{{ 'COLOR' | translate }}">
+    <div class="color-button">
+        <input #colorInput class="color-picker" type="color" name="color" (input)="setColor(colorInput.value)" />
+    </div>
+</div>
+<div class="size-zone">
+    <div class="preview-container" [style.width.px]="maxSize">
+        <div
+            class="preview"
+            [style.width.px]="toolSize"
+            [style.height.px]="toolSize"
+            [ngClass]="{ circle: selectedTool === pencil, invisible: disableSize, dots: selectedTool === airbrush }"
+        ></div>
+    </div>
+    <input
+        #sizeInput
+        type="number"
+        class="size-input"
+        [(ngModel)]="toolSize"
+        [disabled]="disableSize"
+        [min]="minSize"
+        [max]="maxSize"
+        (input)="setLineSize()"
+        [ngClass]="{ 'disabled-input': disableSize }"
+    />
+    <span>px</span>
+</div>
+<button class="tool" matTooltip="{{ 'PENCIL' | translate }}" [ngClass]="{ 'selected-tool': selectedTool === pencil }" (click)="selectTool(pencil)">
+    <img src="./assets/pencil.png" alt="Crayon" draggable="false" />
+</button>
+<button
+    class="tool"
+    matTooltip="{{ 'AIRBRUSH' | translate }}"
+    [ngClass]="{ 'selected-tool': selectedTool === airbrush }"
+    (click)="selectTool(airbrush)"
+>
+    <img src="./assets/paint.png" alt="Aérosol" draggable="false" />
+</button>
+<button class="tool" matTooltip="{{ 'ERASER' | translate }}" [ngClass]="{ 'selected-tool': selectedTool === eraser }" (click)="selectTool(eraser)">
+    <img src="./assets/eraser.png" alt="Efface" draggable="false" />
+</button>
+<button
+    class="tool"
+    matTooltip="{{ 'RECTANGLE' | translate }}"
+    [ngClass]="{ 'selected-tool': selectedTool === rectangle }"
+    (click)="selectTool(rectangle)"
+>
+    <img src="./assets/Rectangle.png" alt="Rectangle" draggable="false" />
+</button>
+<button class="tool" matTooltip="{{ 'ELLIPSE' | translate }}" [ngClass]="{ 'selected-tool': selectedTool === ellipse }" (click)="selectTool(ellipse)">
+    <img src="./assets/ellipse.png" alt="Ellipse" draggable="false" />
+</button>
+<button class="tool" matTooltip="{{ 'BUCKET' | translate }}" [ngClass]="{ 'selected-tool': selectedTool === bucket }" (click)="selectTool(bucket)">
+    <img src="./assets/paint-bucket.png" alt="Seau de peinture" draggable="false" />
+</button>
+
+<hr />
+
+<app-image-picker [imageIndex]="bothImagesIndex" class="tool" matTooltip="{{ 'UPLOAD_BACKGROUND_IMAGE' | translate }}"></app-image-picker>
+
+<div [ngClass]="{ 'flow-input-container': true, invisible: selectedTool !== airbrush }">
+    <div class="flow-text">
+        <span class="flow-value">{{ airbrushFlow }}</span>
+        {{ 'AIRBRUSH_FLOW' | translate }}
+    </div>
+    <div class="flow-slider">
+        <input
+            #sliderInput
+            type="range"
+            name="radius"
+            min="0"
+            [max]="flowValues.length - 1"
+            [value]="defaultFlowIndex"
+            list="ticks"
+            (input)="setSprayFlow(sliderInput.value)"
+        />
+        <datalist id="ticks">
+            <option *ngFor="let value of flowValues; index as i" [value]="i" [label]="value"></option>
+        </datalist>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="login-container">
+    <section id="title" class="plain-paper-bg justified">
+        <h1 class="header-item">
+            <img src="./assets/magnifying_glass.png" alt="Logo test" draggable="false" />
+            <span>{{ 'LOGIN_GAME' | translate }}</span
+            >{{ 'LOGIN_LOGOTITLE' | translate }}
+        </h1>
+        <img class="top left" src="./assets/adhesive_tape.png" draggable="false" />
+        <img class="top right" src="./assets/adhesive_tape.png" draggable="false" />
+        <img class="bottom left" src="./assets/adhesive_tape.png" draggable="false" />
+        <img class="bottom right" src="./assets/adhesive_tape.png" draggable="false" />
+    </section>
+    <div class="login-form-container">
+        <img src="./assets/push_pin.png" alt="" class="login-pin" />
+        <div class="login-text-title">{{ 'LOGIN_TITLE' | translate }}</div>
+        <form class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <input
+                type="text"
+                name="username"
+                [placeholder]="'LOGIN_PLACEHOLDERUSER' | translate"
+                class="login-username"
+                [(ngModel)]="username"
+                required
+            />
+
+            <input
+                type="password"
+                name="password"
+                [placeholder]="'LOGIN_PLACEHOLDERPASS' | translate"
+                class="login-password"
+                required
+                [(ngModel)]="password"
+            />
+
+            <button mat-raised-button class="login-button" [disabled]="!loginForm.form.valid">{{ 'LOGIN_CONNECT' | translate }}</button>
+            <div class="login-account-container">
+                <a class="login-create-account" routerLink="/sign-up">{{ 'LOGIN_CREATEACCOUNT' | translate }}</a>
+                <a class="login-reinitialize-password" routerLink="/reset-password">{{ 'LOGIN_RESETPASSWORD' | translate }}</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="error-message" [ngClass]="{ 'visible-error': errorMessage }">
+    {{ errorMessage | translate }}
+</div>

@@ -1,0 +1,12 @@
+<div class="congrats-container">
+    <div class="congrats-message">
+        <h3 class="winner">{{ gameService.differencesFoundTotal }}</h3>
+    </div>
+    <img class="congrats" src="./assets/congrats-time-limited.png" draggable="false" />
+    <div *ngIf="data.replayIsAvailable">
+        <app-post-it name="Lancer la reprise video" class="replay-post-it post-it" (click)="closePopup()"></app-post-it>
+        <br />
+        <app-post-it name="Fermer" class="close-post-it post-it" (click)="closePopup()"></app-post-it>
+    </div>
+    <app-post-it name="Fermer" class="close-post-it post-it" (click)="closePopup()"></app-post-it>
+</div>

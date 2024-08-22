@@ -1,0 +1,58 @@
+<app-page-title [pageTitle]="'SETTINGS_TITLE' | translate"></app-page-title>
+<button class="setting-exit" (click)="closeComponent()"><mat-icon>close</mat-icon></button>
+<div class="container">
+    <div class="row">
+        <h2 class="setting-title title-fixed-width">{{ 'THEME' | translate }}:</h2>
+        <div class="settings-row">
+            <button [class]="{ choice: true, selected: isLight, light: true, theme: true }" (click)="setTheme(themes.Light)">
+                {{ 'THEME_LIGHT' | translate }}
+                <img src="./assets/light.png" alt="" />
+                <img class="check-mark" *ngIf="isLight" src="./assets/selected.png" alt="" />
+            </button>
+            <button [class]="{ choice: true, selected: !isLight, dark: true, theme: true }" (click)="setTheme(themes.Dark)">
+                {{ 'THEME_DARK' | translate }}
+                <img src="./assets/dark.png" alt="" />
+                <img class="check-mark" *ngIf="!isLight" src="./assets/selected.png" alt="" />
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="setting-title title-fixed-width">{{ 'LANGUAGE_TITLE' | translate }}:</h2>
+        <div class="settings-row">
+            <button [class]="{ choice: true, selected: !isEnglish }" (click)="setLanguage(languages.French)">
+                {{ 'FRENCH' | translate }}
+                <img class="check-mark" *ngIf="!isEnglish" src="./assets/selected.png" alt="" />
+            </button>
+            <button [class]="{ choice: true, selected: isEnglish }" (click)="setLanguage(languages.English)">
+                {{ 'ENGLISH' | translate }}
+                <img class="check-mark" *ngIf="isEnglish" src="./assets/selected.png" alt="" />
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2 class="setting-title">{{ 'SUCCESS_SOUND' | translate }}:</h2>
+            <div class="sounds">
+                <button
+                    *ngFor="let item of successSounds; index as i"
+                    [class]="{ selected: item.sound === selectedSuccess }"
+                    (click)="playSound(item.sound, 'success')"
+                >
+                    {{ item.name | translate }}
+                </button>
+            </div>
+        </div>
+        <div class="col">
+            <h2 class="setting-title">{{ 'FAILURE_SOUND' | translate }}:</h2>
+            <div class="sounds">
+                <button
+                    *ngFor="let item of failureSounds; index as i"
+                    [class]="{ selected: item.sound === selectedFailure }"
+                    (click)="playSound(item.sound, 'failure')"
+                >
+                    {{ item.name | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

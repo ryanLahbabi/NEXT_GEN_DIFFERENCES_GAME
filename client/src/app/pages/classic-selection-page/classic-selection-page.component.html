@@ -1,0 +1,16 @@
+<app-top-bar [pageTitle]="'SELECTION_CLASSIC_GAME' | translate" style="width: 100%"></app-top-bar>
+<div id="page-core" class="row">
+    <app-tabs>
+        <app-tab name="{{ 'AWAITING_GAMES' | translate }}" color="#fcdb00">
+            <app-carousel-view [type]="carouselType.Join"></app-carousel-view>
+        </app-tab>
+        <app-tab name="{{ 'CREATE_A_NEW_GAME' | translate }}" color="#99ea99">
+            <app-carousel-view [type]="carouselType.Create"></app-carousel-view>
+        </app-tab>
+        <app-tab name="{{ 'OBSERVE_A_GAME_IN_PROGRESS' | translate }}" color="#a09bff">
+            <app-carousel-view [type]="carouselType.ObserveClassic"></app-carousel-view>
+        </app-tab>
+    </app-tabs>
+</div>
+
+<app-channel-toggle></app-channel-toggle>

@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<div class="header-fixed">
+    <app-page-title [pageTitle]="'SEARCH_USERS' | translate"></app-page-title>
+    <div class="search-container">
+        <input class="input" [(ngModel)]="friendService.searchTerm" (keyup.enter)="friendService.searchFriends()" type="text" placeholder="{{'SEARCH_USERS' | translate}}...">
+        <button class="search-btn" (click)="friendService.searchFriends()"><i class="fa fa-search"></i></button>
+    </div>
+</div>
+
+<button class="fa fa-times" aria-hidden="true" (click)="closeDialog()"></button>
+
+<div class="scrollable-content">
+
+<div *ngFor="let friend of friendService.friendsFounded" class="friend-container"
+[ngClass]="{
+    'friend-container-not-friend': !friend.isFriend && friend.username !== this.accountService.currentUser?.username, 
+    'friend-container-friend': friend.isFriend && friend.username !== this.accountService.currentUser?.username,
+    'friend-container-self': friend.username === this.accountService.currentUser?.username,
+    'friend-container-blocked': this.friendService.isBlocked(friend.username)
+  }" 
+  >
+
+
+<div *ngIf="friend.username === this.accountService.currentUser?.username">
+    <button class="account-button" routerLink="/account" (click)="navigateToAccount(friend.username)">
+        <app-avatar [imagePath]="friend.avatar" class ="account-avatar"></app-avatar>
+        {{'CHECK_PROFILE' | translate}}
+    </button>
+<span class="friend-name">{{ friend.username }}</span>
+<span class="friend-name"> ({{'YOU' | translate}})</span>
+
+</div>
+<div *ngIf="friend.username !== this.accountService.currentUser?.username">
+    <div *ngIf="!friend.isFriend" class="friend_founded">
+        <button class="account-button" routerLink="/account" (click)="navigateToAccount(friend.username)">
+            <app-avatar [imagePath]="friend.avatar" class ="account-avatar"></app-avatar>
+            {{'CHECK_PROFILE' | translate}}
+        </button>
+        <span class="friend-name">{{ friend.username }}</span>
+        <button (click)="friendService.setSelectedUserFriends(friend.username)" class="fa fa-user-friends" aria-hidden="true">
+            <span class="button-text">{{'CHECK_FRIENDS' | translate}}</span>
+        </button>
+        <button *ngIf="!friend.isFriendRequested && !friendService.isBlocked(friend.username)" class="fa fa-user-plus"  (click)="friendService.askToBeFriend(friend.username)"></button>
+        <button  *ngIf="!friendService.isBlocked(friend.username)" (click)="friendService.blockUser(friend.username)" class="fa fa-regular fa-user-lock"></button>
+        <button  *ngIf="friendService.isBlocked(friend.username)" (click)="friendService.unBlockUser(friend.username)" class="fa fa-unlock">{{'UNLOCK' | translate}}</button>
+
+        <div *ngIf="friend.isFriendRequested" class = "pending-request">
+            <img src = "../../../../assets/pending-request.png">
+        </div>
+        <div *ngIf="friendService.selectedUsername === friend.username && friendService.selectedUserFriends.length > 0 && friendService.isFriendsListVisible">
+            <p>{{'USER_FRIENDS' | translate}}:</p>
+            <ul>
+                <li *ngFor="let friendInfo of friendService.selectedUserFriends">
+                    {{ friendInfo }}
+                    <span class="already-friend" *ngIf="friendService.isMyFriend(friendInfo)">{{'ALREADY_FRIENDS' | translate}}</span>
+                    <button *ngIf="!friendService.isMyFriend(friendInfo) && !friendService.isMyPending(friendInfo) && !friendService.isBlocked(friend.username)" class="fa fa-user-plus unique-friend-request" (click)="friendService.askToBeFriend(friendInfo)"></button>
+                    <span *ngIf="friend.isFriendRequested" class="pending2-request">{{'PENDING_REQUEST' | translate}}</span>
+                    <!-- <div *ngIf="friend.isFriendRequested" class = "pending-request">
+                        <img src = "../../../../assets/pending-request.png">
+                    </div> -->
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="friendService.selectedUsername === friend.username && friendService.selectedUserFriends.length === 0 && friendService.isFriendsListVisible">
+            <p>{{'NO_FRIENDS_USER' | translate}}</p>
+        </div>
+    </div>
+
+    <div *ngIf="friend.isFriend" class="friend_founded is-friend">
+        <button class="account-button" routerLink="/account" (click)="navigateToAccount(friend.username)">
+            <app-avatar [imagePath]="friend.avatar" class ="account-avatar"></app-avatar>
+            {{'CHECK_PROFILE' | translate}}
+        </button>
+        <span class="friend-name">{{ friend.username }}</span>
+        <button (click)="friendService.removeFriend(friend.username)" class="fa fa-user-times"></button>
+        <button (click)="friendService.setSelectedUserFriends(friend.username)" class="fa fa-user-friends" aria-hidden="true">
+            <span class="button-text">{{'CHECK_FRIENDS' | translate}}</span>
+        </button>
+        <div *ngIf="friendService.selectedUsername === friend.username && friendService.selectedUserFriends.length > 0 && friendService.isFriendsListVisible">
+            <p>{{'USER_FRIENDS' | translate}}:</p>
+            <ul *ngFor="let friendInfo of friendService.selectedUserFriends"  class="friend-list">
+                <li>
+                    
+                    <span class="friend-info">{{ friendInfo }}</span>
+                    <span *ngIf="friendInfo !== this.accountService.currentUser?.username">
+                        <span class="already-friend" *ngIf="friendService.isMyFriend(friendInfo)">{{'ALREADY_FRIENDS' | translate}}</span>
+                        <button *ngIf="!friendService.isMyFriend(friendInfo) && !friendService.isMyPending(friendInfo) && !friendService.isBlocked(friend.username)" class="fa fa-user-plus unique-friend-request" (click)="friendService.askToBeFriend(friendInfo)"></button>
+                        <span *ngIf="friendService.isMyPending(friendInfo)" class="pending2-request">{{'PENDING_REQUEST' | translate}}</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        
+        <div *ngIf="friendService.selectedUsername === friend.username && friendService.selectedUserFriends.length === 0 && friendService.isFriendsListVisible">
+            <p>{{'NO_FRIENDS_USER' | translate}}</p>
+        <div>
+    </div>
+</div>
+</div>
+</div>
+</div>

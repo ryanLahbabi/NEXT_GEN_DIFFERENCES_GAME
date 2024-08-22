@@ -1,0 +1,33 @@
+button {
+    width: 100px;
+    height: 70px;
+    padding: 0;
+    background-color: rgba($color: #000, $alpha: 0);
+    position: relative;
+    border: none;
+}
+
+.arrow {
+    width: 100%;
+}
+
+button:hover:not(.deactivated):not(:active) > .arrow {
+    filter: saturate(120%) brightness(110%);
+}
+
+.deactivated > .arrow {
+    filter: saturate(50%) brightness(120%) hue-rotate(280deg);
+}
+
+.flip > .arrow {
+    transform: scaleX(-1);
+}
+
+.pin {
+    position: absolute;
+    z-index: 1;
+    width: 20%;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+}

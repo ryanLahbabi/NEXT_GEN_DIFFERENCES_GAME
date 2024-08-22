@@ -1,0 +1,60 @@
+.record-beater {
+    color: rgba(64, 0, 255, 0.821);
+}
+
+:host {
+    background-color: #ae01ff;
+    padding: 20px;
+}
+
+.post-it {
+    position: relative;
+    font-size: 30px;
+    justify-content: center;
+    height: 110px;
+}
+
+.close-post-it {
+    background-color: #ff5e5e;
+}
+
+.replay-post-it {
+    background-color: #84b4df;
+}
+
+.post-it:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+}
+
+.congrats {
+    width: 680px;
+}
+
+.close {
+    width: 100%;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.record-beater {
+    position: absolute;
+    top: 80%;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(64, 0, 255, 0.821);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.side-by-side {
+    justify-content: space-between;
+}
+
+.side-by-side .post-it {
+    width: 47%;
+}

@@ -1,0 +1,136 @@
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 20px;
+    background-color: #b8f4f15b;
+    box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.tool {
+    background-color: transparent;
+    outline: none;
+    border-color: transparent;
+}
+
+.tool:hover:not(.selected-tool):not(.deactivated) {
+    border-bottom: 2px solid white;
+}
+
+.deactivated {
+    opacity: 40%;
+}
+
+.selected-tool {
+    background-color: rgba(18, 177, 177, 0.2);
+    border: 2px solid #12b1b1;
+    border-radius: 25%;
+}
+
+.tool img {
+    width: 40px;
+}
+
+.preview.circle {
+    border-radius: 100%;
+}
+
+.preview.dots {
+    background-color: transparent;
+    background-image: url('../../../../assets/dots.png');
+    background-size: contain;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.preview-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview {
+    background-color: black;
+    opacity: 0.4;
+}
+
+.size-zone {
+    border: 1px solid rgba(#6a9997, 0.6);
+    height: 50px;
+    width: 150px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.size-input {
+    text-align: center;
+    width: 45px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(white, 0.7);
+}
+
+.disabled-input {
+    color: rgb(142, 142, 142);
+    background-color: rgba(white, 0.5);
+}
+
+.color-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid rgba(white, 0.5);
+}
+
+.color-picker {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flow-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    z-index: 2;
+    padding: 10px;
+    left: 490px;
+    top: 60px;
+    transform: translateX(-50%);
+    background-color: #86efea;
+    box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.3);
+    border: 1px solid #12b1b1;
+    border-radius: 15px;
+}
+
+.flow-text {
+    font-size: 0.9rem;
+}
+
+.flow-value {
+    display: inline-block;
+    min-width: 42px;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #0861ae;
+}
+
+.flow-slider input {
+    width: 100%;
+}

@@ -1,0 +1,62 @@
+<div class="main">
+    <div class="tab-container">
+        <div *ngIf="!changedView" class="my-channels-tab tab">{{ buttonText }}</div>
+        <div *ngIf="changedView" class="my-channels-tab tab padding-l">{{ buttonText }}</div>
+        <div class="change-view padding" [ngClass]="getSwitchViewButtonClass()" (click)="switchView()"></div>
+    </div>
+    <div class="search-bar-container">
+        <textarea
+            class="search-bar"
+            [(ngModel)]="filter"
+            (keydown.enter)="emptyArea($event)"
+            [innerHTML]="filter"
+            placeholder="Search..."
+            required
+        ></textarea>
+    </div>
+
+    <section class="channel-container">
+        <div *ngIf="viewingMyChannels">
+            <div
+                class="channel"
+                [ngClass]="getSelectedChannelClass(conversation.id)"
+                *ngFor="let conversation of allMyChannels"
+                (click)="setFocusedConversation(conversation.id)"
+            >
+                <div>
+                    <p class="channel-name">{{ conversation.name }}</p>
+                    <p *ngIf="conversation.id !== '0' && conversation.id !== 'gaming'" class="channel-host">host: {{ conversation.host }}</p>
+                </div>
+                <div
+                    *ngIf="conversation.id !== '0' && conversation.id !== 'gaming'"
+                    class="leave-icon icon"
+                    (click)="leaveChannel(conversation.id)"
+                ></div>
+            </div>
+        </div>
+        <div *ngIf="viewingOtherChannels">
+            <div class="channel other-channel" *ngFor="let conversation of allOtherChannels">
+                <div>
+                    <p class="channel-name">{{ conversation.name }}</p>
+                    <p class="channel-host">host: {{ conversation.host }}</p>
+                </div>
+                <div class="add-icon icon" (click)="joinChannel(conversation.id)"></div>
+            </div>
+        </div>
+        <div class="space"></div>
+    </section>
+
+    <div class="create-channel-container">
+        <div class="create-channel-area">
+            <textarea
+                class="create-channel-name"
+                [(ngModel)]="newChannelName"
+                (keydown.enter)="createChannel()"
+                (keydown.enter)="emptyArea($event)"
+                placeholder="Channel Name"
+                required
+            ></textarea>
+            <div class="change-view create-channel-button" (click)="createChannel()"></div>
+        </div>
+    </div>
+</div>

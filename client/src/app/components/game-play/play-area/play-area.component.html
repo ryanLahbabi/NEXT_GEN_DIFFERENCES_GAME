@@ -1,0 +1,22 @@
+<h2 class="name">{{ name }}</h2>
+<div class="canvas-container">
+    <canvas
+        id="canvas"
+        #canvas
+        (click)="mouseHitDetect($event)"
+        (mousedown)="onMouseDown($event)"
+        [attr.width]="width"
+        [attr.height]="height"
+    ></canvas>
+    <app-differences-found [isModified]="isModified"></app-differences-found>
+    <img id="background-image" [src]="backgroundImageUrl | safeResourceUrl" alt="" />
+    <span
+        [ngClass]="{ invisible: !errorIsVisible }"
+        [style.width.px]="errorWidth"
+        [style.height.px]="errorHeight"
+        [style.left.px]="errorX"
+        [style.top.px]="errorY"
+        id="error-message"
+        >ERREUR</span
+    >
+</div>

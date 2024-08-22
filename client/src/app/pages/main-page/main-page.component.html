@@ -1,0 +1,84 @@
+<section id="title" [ngClass]="{ 'plain-paper-bg justified': isLightTheme, 'plain-paper-bg-dark justified': !isLightTheme }">
+    <h1 [ngClass]="{ 'header-item': isLightTheme, 'header-item-dark': !isLightTheme }">
+        <img src="./assets/magnifying_glass.png" alt="Logo test" draggable="false" />
+        <span>{{ 'MAIN_GAME' | translate }}</span> {{ 'MAIN_LOGOTITLE' | translate }}
+    </h1>
+    <img class="top left" src="./assets/adhesive_tape.png" draggable="false" />
+    <img class="top right" src="./assets/adhesive_tape.png" draggable="false" />
+    <img class="bottom left" src="./assets/adhesive_tape.png" draggable="false" />
+    <img class="bottom right" src="./assets/adhesive_tape.png" draggable="false" />
+</section>
+<app-post-it
+    class="reenie"
+    [name]="'MAIN_LIMITED' | translate"
+    routerLink="/timed"
+    style="background-color: #ff7faf; left: 710px; top: 380px"
+></app-post-it>
+<app-post-it
+    class="reenie"
+    [name]="'MAIN_CLASSIC' | translate"
+    color="#FCDB00"
+    routerLink="/classic"
+    style="background-color: #fcdb00; left: 433px; top: 540px"
+></app-post-it>
+<app-post-it
+    class="reenie"
+    [name]="'MAIN_CONFIGURATION' | translate"
+    color="#67EAE5"
+    (click)="requestAdminPage()"
+    style="background-color: #67eae5; left: 733px; top: 650px"
+></app-post-it>
+<div id="team_display" [ngClass]="{ 'plain-paper-bg': isLightTheme, 'plain-paper-bg-dark': !isLightTheme }">
+    <p *ngIf="isLightTheme">
+        {{ 'MAIN_TEAM' | translate }} 208: <br />Jeremy Rouillard, <br />Lucas Bouchard, <br />Ryan Lahbabi, <br />Zarine Amy Ardekani-Djoneidi,
+        <br />
+        Badr Amine &<br />Fatima Zohra Oulaidi
+    </p>
+    <p *ngIf="!isLightTheme" class="team-names">
+        {{ 'MAIN_TEAM' | translate }} 208: <br />Jeremy Rouillard, <br />Lucas Bouchard, <br />Ryan Lahbabi, <br />Zarine Amy Ardekani-Djoneidi,
+        <br />
+        Badr Amine &<br />Fatima Zohra Oulaidi
+    </p>
+    <img class="top left" src="./assets/adhesive_tape.png" draggable="false" />
+    <img class="top right" src="./assets/adhesive_tape.png" draggable="false" />
+    <img class="bottom left" src="./assets/adhesive_tape.png" draggable="false" />
+    <img class="bottom right" src="./assets/adhesive_tape.png" draggable="false" />
+</div>
+<img id="giant_image" src="./assets/giant_magnifier.png" alt="Loupe géante" draggable="false" />
+<button class="account-button" routerLink="/account">
+    <app-avatar class="account-avatar"></app-avatar>
+</button>
+<button class="settings-button" (click)="openSettings()"><mat-icon>settings</mat-icon></button>
+<app-channel-toggle></app-channel-toggle>
+<div class="search-friends-container">
+    <a
+        *ngIf="isLightTheme"
+        class="search-friends-light"
+        (click)="requestFriendsAdding()"
+        (click)="this.friendService.isAFriend(this.accountService.currentUser?.username)"
+        (click)="this.friendService.isPending(this.accountService.currentUser?.username)"
+        (click)="this.friendService.updateFriendsFounded()"
+        draggable="false"
+    >
+        <img src="./assets/search_friends.png" />
+    </a>
+    <a
+        *ngIf="!isLightTheme"
+        class="search-friends-dark"
+        (click)="requestFriendsAdding()"
+        (click)="this.friendService.isAFriend(this.accountService.currentUser?.username)"
+        (click)="this.friendService.isPending(this.accountService.currentUser?.username)"
+        (click)="this.friendService.updateFriendsFounded()"
+        draggable="false"
+    >
+        <img src="./assets/search_friends.png" />
+    </a>
+</div>
+<div class="ask-friends-container">
+    <a *ngIf="isLightTheme" class="ask-friends-light" (click)="requestFriendsDemands()" draggable="false">
+        <img src="./assets/ask_friend.jpg" />
+    </a>
+    <a *ngIf="!isLightTheme" class="ask-friends-dark" (click)="requestFriendsDemands()" draggable="false">
+        <img src="./assets/ask_friend.jpg" />
+    </a>
+</div>

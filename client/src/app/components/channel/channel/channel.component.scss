@@ -1,0 +1,102 @@
+@import url('./../root-channel.scss');
+
+.toggle-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: right 0.35s;
+    z-index: 1000;
+}
+
+.header {
+    background-image: linear-gradient(270deg, var(--my-channels-bg-color) 49%, var(--my-channels-bg-color) 51%, var(--my-channels-bg-color) 100%);
+    z-index: 0;
+    border-radius: 20px 20px 0 0;
+    height: var(--header-height);
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.toggle-on-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-color: transparent;
+    width: 100px;
+    height: 100px;
+    right: -35px;
+    border-radius: 50px 0 0 50px;
+    transition: right 0.3s, background-color 0.4s;
+}
+
+.toggle-off-button {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: rgb(182, 237, 185);
+    border-color: transparent;
+    height: 100px;
+    width: 70px;
+    transition: background-color 0.3s;
+    border-radius: 30px 0 0 30px;
+}
+
+.toggle-on-button:hover {
+    background-color: rgb(200, 255, 194);
+    right: -15px;
+    transition: right 0.3s, background-color 0.3s;
+}
+
+.toggle-off-button:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+    transition: background-color 0.3s;
+}
+
+.arrow {
+    position: absolute;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    rotate: 45deg;
+    border: solid rgba(0, 0, 0, 0.6);
+    border-right: 0;
+    border-top: 0;
+    border-width: 10px;
+}
+
+.toggle-on-button:hover > .arrow {
+    border-color: black;
+    transition: border-color 0.7s;
+}
+
+.toggle-off-button > .arrow {
+    rotate: 225deg;
+    right: 20px;
+    border-color: black;
+    transition: border-color 0.7s;
+}
+
+.channel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px 0 0 40px;
+    z-index: 1;
+}
+
+.channel-selection {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.opened {
+    right: 20px;
+}

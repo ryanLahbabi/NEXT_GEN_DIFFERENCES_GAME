@@ -1,0 +1,41 @@
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #e34e4e;
+}
+
+div .modal-body {
+    padding: 20px 40px 40px;
+    text-align: center;
+}
+
+app-paper-button {
+    width: 120px;
+    height: 45px;
+}
+
+.green-push-pin {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.top {
+    top: 0.5%;
+}
+
+.bottom {
+    bottom: 0.5%;
+}
+
+.left {
+    left: 0.5%;
+}
+
+.right {
+    right: 0.5%;
+}

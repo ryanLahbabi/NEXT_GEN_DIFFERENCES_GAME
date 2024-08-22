@@ -1,0 +1,8 @@
+<div class="toggle-container" [ngClass]="showChannelView ? 'opened' : ''">
+    <div *ngIf="showChannelView" class="header"></div>
+    <button [ngClass]="getBtnStyle()" (click)="toggleChannelView()">
+        <div class="arrow"></div>
+    </button>
+    <app-channel-conversation class="channel-container" *ngIf="showChannelView"></app-channel-conversation>
+    <app-channel-selection class="channel-selection" *ngIf="showChannelView" style="border-radius: 0 20px 20px 0"></app-channel-selection>
+</div>

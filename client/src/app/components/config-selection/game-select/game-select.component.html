@@ -1,0 +1,46 @@
+<div *ngIf="isTimed" id="timed-game-container">
+    <span class="observed floating" *ngIf="game.observerNbr">{{ 'OBSERVED' | translate }}</span>
+    <h3 *ngIf="isOngoing">{{ 'PLAYERS_IN_GAME' | translate }}:</h3>
+    <h3 *ngIf="!isOngoing">{{ 'AWAITING_PLAYERS' | translate }}:</h3>
+    <div class="players">
+        <span class="player" *ngFor="let player of game.waitingPlayers; index as i">
+            {{ player }} <span *ngIf="i === 0"> ({{ 'CREATOR' | translate }})</span>
+        </span>
+    </div>
+    <app-paper-button class="timed-button" [name]="buttonName" (click)="sendSelection()"></app-paper-button>
+    <img class="push-pin" src="./assets/push_pin.png" draggable="false" />
+</div>
+
+<div *ngIf="!isTimed" id="game-container" [attr.class]="difficulty + (hasPlayerList ? ' join-container' : '')">
+    <div [ngClass]="{ column: true, 'bigger-column ': !hasPlayerList }">
+        <div class="row">
+            <h3>{{ game.name }}</h3>
+            <span class="observed" *ngIf="game.observerNbr">{{ 'OBSERVED' | translate }}</span>
+        </div>
+        <img class="game-picture" [attr.src]="'data:bmp;base64,' + game.originalImage | safeResourceUrl" draggable="false" />
+        <div id="button-container">
+            <app-paper-button *ngIf="hasPlayerList" [name]="buttonName" (click)="sendSelection()"></app-paper-button>
+        </div>
+    </div>
+    <div [ngClass]="{ column: true, 'right-column': !hasPlayerList }">
+        <div id="game-description" [ngClass]="{ create: isCreate }">
+            <h3>
+                {{ 'DIFFICULTY' | translate }}: <span class="value">{{ difficulty }}</span>
+            </h3>
+            <h3>
+                {{ 'DIFFERENCES' | translate }}: <span class="value">{{ game.nbrDifferences }}</span>
+            </h3>
+            <h3 *ngIf="isCreate">
+                Likes: <span class="value">{{ game.likes }}</span>
+            </h3>
+        </div>
+        <div class="like-container" *ngIf="isCreate">
+            <div class="like-button" [ngClass]="isLiked ? 'is-liked' : 'like'" (click)="like()"></div>
+            <div class="like-button" [ngClass]="isDisliked ? 'is-disliked' : 'dislike'" (click)="dislike()"></div>
+        </div>
+        <app-player-list *ngIf="hasPlayerList && isOngoing" [playerNames]="waitingPlayers" [text]="'PLAYERS_IN_GAME' | translate"></app-player-list>
+        <app-player-list *ngIf="hasPlayerList && !isOngoing" [playerNames]="waitingPlayers" [text]="'AWAITING_PLAYERS' | translate"></app-player-list>
+        <app-paper-button *ngIf="!hasPlayerList" [name]="buttonName" (click)="sendSelection()"></app-paper-button>
+    </div>
+    <img class="push-pin" src="./assets/push_pin.png" draggable="false" />
+</div>

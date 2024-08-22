@@ -1,0 +1,223 @@
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #e67add;
+    gap: 20px;
+    padding: 40px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.flex-row {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    height: 100%;
+    gap: 30px;
+}
+
+.main-row {
+    justify-content: center;
+    gap: 25px;
+}
+
+.flex-column {
+    align-self: stretch;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.button-container {
+    gap: 15px;
+}
+
+app-paper-button {
+    height: 45px;
+}
+
+.exit {
+    width: 120px;
+}
+
+.start {
+    width: 230px;
+}
+
+.green-push-pin {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.top {
+    top: 0.5%;
+}
+
+.bottom {
+    bottom: 0.5%;
+}
+
+.left {
+    left: 0.5%;
+}
+
+.right {
+    right: 0.5%;
+}
+
+app-chat-box {
+    width: 100%;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    height: 20px;
+    margin-right: 8px;
+}
+input[type='number'] {
+    width: 45px;
+    font-weight: bold;
+}
+input[type='checkbox'] {
+    width: 20px;
+}
+
+label {
+    font-size: 16px;
+}
+
+.players {
+    text-align: left;
+    border-radius: 15px;
+    border: #74076b 3px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+app-avatar {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.players > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: left;
+    height: 65px;
+    min-width: 350px;
+    padding: 10px;
+}
+
+.players > div:first-child {
+    border-radius: 15px 15px 0 0;
+}
+.players > div:last-child {
+    border-radius: 0 0 15px 15px;
+}
+
+.players > div:nth-child(odd) {
+    background-color: #eeaffe;
+}
+.players > div:nth-child(even) {
+    background-color: #df8ced;
+}
+
+fieldset {
+    text-align: left;
+    border-radius: 15px;
+    border: #74076b 3px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 15px 15px;
+}
+
+h2 {
+    width: 500px;
+    height: 75px;
+    align-self: center;
+}
+
+.warn-message {
+    width: 250px;
+    background-color: #e296dc;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.bottom-row {
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.params {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    gap: 35px;
+}
+
+.params .flex-row {
+    justify-content: space-between;
+    gap: 10px;
+}
+
+label {
+    max-width: 180px;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 150px;
+}
+
+legend {
+    margin-left: 15px;
+    padding: 0 10px;
+}
+
+app-chatbox {
+    width: 400px;
+    height: 580px;
+}
+
+.chat-interaction-zone {
+    background-color: #5fb570;
+    position: relative;
+    width: 600px;
+    height: 800px;
+    border-radius: 40px 40px 40px 40px;
+    z-index: 1;
+}
+
+.go-back {
+    background-image: url('./../../../../assets/add.png');
+    top: 25px;
+    left: 25px;
+    background-size: 100%;
+    height: 50px;
+    width: 50px;
+    z-index: 10000;
+    background-position: center;
+    position: absolute;
+}

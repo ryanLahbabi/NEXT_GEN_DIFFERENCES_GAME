@@ -1,0 +1,34 @@
+:host {
+    background-color: #FC7900;
+    padding: 10px;
+    width: 700px;
+    height: 350px;
+}
+
+.congrats-container {
+    position: relative;
+    width: 700px;
+    height: 300px;
+    top: 10px;
+}
+
+.change_access{
+    width: 700px;
+}
+
+.post-it {
+    position: relative;
+    font-size: 30px;
+    justify-content: center;
+    height: 110px;
+}
+
+.close-post-it {
+    background-color: #ff5e5e;
+}
+
+.post-it:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+}
+

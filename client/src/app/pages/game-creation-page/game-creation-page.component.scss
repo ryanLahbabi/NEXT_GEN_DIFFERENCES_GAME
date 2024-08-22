@@ -1,0 +1,147 @@
+* {
+    user-select: none;
+}
+
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.creation-zone {
+    display: flex;
+    flex-direction: column;
+    background-color: #67eae5;
+    gap: 20px;
+    padding: 30px;
+    align-items: center;
+    height: fit-content;
+    width: 92%;
+}
+
+.top-zone {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    gap: 10px;
+}
+
+.images-zone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.middle-zone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 15px;
+}
+
+#swap {
+    background-color: transparent;
+    outline: none;
+    border-color: transparent;
+}
+
+#swap:hover {
+    border-bottom: 2px solid white;
+}
+
+#swap img {
+    width: 60px;
+}
+
+em {
+    flex-basis: 15%;
+    text-align: justify;
+}
+
+.empty-zone {
+    flex-basis: 20%;
+}
+
+.back {
+    height: 50px;
+    width: 263px;
+}
+
+.separator {
+    width: 1px;
+    background-color: #6a9997;
+}
+
+#validate-btn {
+    margin-top: 10px;
+    width: 140px;
+    height: 55px;
+    scale: 1.5;
+}
+
+.slider-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.slider-zone label {
+    font-size: 1rem;
+}
+
+.configuration-zone {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 150px;
+}
+
+.slider {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+    gap: 25px;
+}
+
+.slider-bar datalist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slider-bar input {
+    width: 100%;
+}
+
+.slider-bar {
+    width: 200px;
+}
+
+.image-title {
+    text-align: center;
+}
+
+#hidden-canvas {
+    display: none;
+}
+
+.slider-value {
+    display: inline-block;
+    min-width: 27px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #0861ae;
+}

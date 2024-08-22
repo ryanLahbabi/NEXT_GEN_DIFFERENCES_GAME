@@ -1,0 +1,3 @@
+export const CLASSIC_CARDS_MAX_CAPACITY = 4;
+export const TIMED_CARDS_MAX_CAPACITY = 6;
+export const USERNAME_MIN_LENGTH = 1;

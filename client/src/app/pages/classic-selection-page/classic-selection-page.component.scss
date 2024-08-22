@@ -1,0 +1,92 @@
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#page-core {
+    position: relative;
+    gap: 20px;
+    padding: 0 10px;
+    width: 1900px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+    height: fit-content;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+.selection {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    border: 10px solid red;
+    gap: 30px;
+    width: 1379.73px;
+    height: 790px;
+    padding-right: 45px;
+}
+
+.green-push-pin {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 60px;
+    max-height: 62px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+}
+
+.top {
+    top: -5%;
+}
+
+.bottom {
+    bottom: -1%;
+}
+
+.left {
+    left: -1%;
+}
+
+.right {
+    right: -2%;
+}
+
+app-post-it {
+    position: absolute;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    font-size: 40px;
+    border: 0;
+    transform: rotate(-6deg);
+    top: 15%;
+    left: 3%;
+}
+
+app-post-it:hover {
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+    transform: scale(1.25);
+}

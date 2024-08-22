@@ -1,0 +1,8 @@
+<h3>{{ text }}</h3>
+<ul>
+    <li *ngFor="let name of playerNames; index as i">{{ name }} <span *ngIf="i === 0">(créateur)</span></li>
+</ul>
+<img class="tape top left" src="./assets/adhesive_tape.png" draggable="false" />
+<img class="tape top right" src="./assets/adhesive_tape.png" draggable="false" />
+<img class="tape bottom left" src="./assets/adhesive_tape.png" draggable="false" />
+<img class="tape bottom right" src="./assets/adhesive_tape.png" draggable="false" />

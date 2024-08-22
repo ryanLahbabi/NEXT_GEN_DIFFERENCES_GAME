@@ -1,0 +1,32 @@
+<div class="replay-list-container">
+    <!-- <div class="filters">
+    <input type="text" placeholder="Date" [(ngModel)]="filters.date" (keyup)="applyFilters()">
+  </div> -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>{{ 'GAME_NAME' | translate }}</th>
+                <th>{{ 'LEVEL_DIFFICULTY' | translate }}</th>
+                <th>{{ 'NUMBER_OF_DIFFERENCES' | translate }}</th>
+                <th>{{ 'REPLAY_PLAYERS' | translate }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let replay of allReplays" (click)="selectReplay(replay.createdAt)">
+                <td>{{ parseISOString(replay.createdAt) }}</td>
+                <td>{{ replay.gameName }}</td>
+                <td>{{ replay.difficulty }}</td>
+                <td>{{ replay.totalDifferences }}</td>
+                <td>{{ replay.players.join(', ') }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="delete-col">
+        <div class="space"></div>
+        <button *ngFor="let replay of allReplays" (click)="deleteReplay(replay.createdAt)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>

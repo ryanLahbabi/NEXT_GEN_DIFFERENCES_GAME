@@ -1,0 +1,249 @@
+:host {
+    display: contents;
+}
+
+.facile,
+.easy {
+    background-color: #67eae5;
+}
+
+.moyen,
+.medium {
+    background-color: #fcdb00;
+}
+
+.difficile,
+.hard {
+    background-color: #ff7faf;
+}
+
+.push-pin {
+    align-self: center;
+    position: absolute;
+    object-fit: contain;
+    width: 30px;
+    height: 30px;
+    top: 3%;
+    left: 50%;
+}
+
+#game-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 15px;
+    width: 500px;
+    height: fit-content;
+    max-height: 380px;
+    text-align: left;
+}
+
+#game-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 200%;
+    align-self: stretch;
+    text-align: right;
+}
+
+#game-description.create {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 80%;
+    align-self: stretch;
+    text-align: left;
+}
+
+#game-description-not-join {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 50%;
+    align-self: stretch;
+    text-align: right;
+}
+
+#game-description-not-join h3 {
+    font-weight: normal;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+
+#game-description h3 {
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.column.right-column #game-description {
+    margin-top: 32px;
+    gap: 25px;
+}
+
+.value {
+    font-size: bold;
+}
+
+#game-container.join-container {
+    margin-right: 100px;
+    gap: 25px;
+}
+
+.column.bigger-column {
+    flex-basis: 90%;
+}
+
+.column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px;
+    gap: 15px;
+    align-items: baseline;
+    flex-basis: 50%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.observed {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 50px;
+    background-color: yellow;
+}
+
+.observed.floating {
+    position: absolute;
+    left: -5px;
+    top: 5px;
+}
+
+.column.right-column {
+    height: 275px;
+    justify-content: space-between;
+}
+
+.select-body {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px;
+    gap: 42px;
+}
+
+.game-picture {
+    width: 100%;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: stretch;
+    height: fit-content;
+    width: 100%;
+}
+
+app-paper-button {
+    width: fit-content;
+    height: 50px;
+    align-self: flex-end;
+}
+
+app-player-list {
+    position: absolute;
+    top: 75px;
+}
+
+#timed-game-container {
+    background-color: #fdc97b;
+    position: relative;
+    padding: 40px 60px 15px;
+    width: 275px;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-grow: 1;
+    margin-top: 12px;
+    gap: 8px;
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.player > span {
+    font-weight: normal;
+}
+
+app-paper-button.timed-button {
+    align-self: center;
+}
+
+.like-container {
+    width: 80%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #00c600;
+}
+
+.like-button {
+    background-image: url('./../../../../assets/like.png');
+    background-size: 100%;
+    background-position: center;
+    height: 23px;
+    width: 23px;
+}
+
+.dislike {
+    margin-top: 3px;
+    transform: scale(1, -1);
+}
+
+.dislike:hover {
+    filter: invert(18%) sepia(88%) saturate(6475%) hue-rotate(358deg) brightness(99%) contrast(120%);
+}
+
+.like {
+    margin-bottom: 3px;
+}
+.like:hover {
+    filter: invert(40%) sepia(97%) saturate(1120%) hue-rotate(87deg) brightness(103%) contrast(114%);
+}
+
+.is-liked {
+    margin-bottom: 3px;
+    filter: invert(40%) sepia(97%) saturate(1120%) hue-rotate(87deg) brightness(103%) contrast(114%);
+}
+
+.is-disliked {
+    margin-top: 3px;
+    transform: scale(1, -1);
+    filter: invert(18%) sepia(88%) saturate(6475%) hue-rotate(358deg) brightness(99%) contrast(120%);
+}

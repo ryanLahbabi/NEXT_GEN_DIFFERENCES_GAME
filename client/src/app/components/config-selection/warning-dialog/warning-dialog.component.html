@@ -1,0 +1,10 @@
+<p>{{ 'VERIF_DELETION' | translate }}</p>
+{{ data }}?
+<div class="buttons">
+    <app-paper-button id="cancel" name="Annuler" (click)="closeDialog(false)"></app-paper-button>
+    <app-paper-button id="confirm" name="Confirmer" (click)="closeDialog(true)"></app-paper-button>
+</div>
+<img class="green-push-pin top left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin top right" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom right" src="./assets/green_pin.png" draggable="false" />

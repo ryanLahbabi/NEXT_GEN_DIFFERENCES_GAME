@@ -1,0 +1,24 @@
+<h2>{{ 'INTERACT_WITH_PLAYERS' | translate }}</h2>
+<div [ngSwitch]="observerService.state">
+    <div *ngSwitchCase="interactionStates.Initial" class="row">
+        <div class="col">
+            <label for="target">{{ 'SEND_INTERACTION_TO' | translate }}:</label>
+            <select name="target" id="target" [(ngModel)]="targetPlayerName">
+                <option value="all">{{ 'EVEREYONE' | translate }}</option>
+                <option *ngFor="let name of playerNames" [value]="name">{{ name }}</option>
+            </select>
+        </div>
+        <div class="col">
+            <app-post-it class="button" [name]="'INTERACT' | translate " (click)="startInteraction()"></app-post-it>
+        </div>
+    </div>
+    <div *ngSwitchCase="interactionStates.Started" class="row">
+        <p>{{ 'CLICK_AND_DRAG' | translate }}</p>
+    </div>
+    <div *ngSwitchCase="interactionStates.Waiting" class="row">
+        <div>
+            <mat-spinner [diameter]="45"></mat-spinner>
+        </div>
+        <p>{{ 'INTERACTION_SENT' | translate }}</p>
+    </div>
+</div>

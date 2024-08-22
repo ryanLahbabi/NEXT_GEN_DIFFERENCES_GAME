@@ -1,0 +1,129 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    background: url('../../../../assets/paper.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: local;
+    width: 1400px;
+    height: 600px;
+    position: relative;
+    padding-left: 357px;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    justify-content: center;
+    gap: 50px;
+}
+
+input {
+    width: 87px;
+    text-align: center;
+}
+
+.title {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.params {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+}
+
+.value-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    width: 100%;
+}
+
+.params-table {
+    border-collapse: separate;
+    border-spacing: 0 30px;
+}
+
+.value-container > span {
+    font-size: inherit;
+}
+
+input[type='number'] {
+    font-size: 30px;
+}
+
+.reset {
+    position: relative;
+    width: 400px;
+    left: 1000px;
+    top: -400px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.button {
+    width: fit-content;
+    height: fit-content;
+}
+
+tr {
+    position: relative;
+    padding: 500px;
+}
+
+td {
+    position: relative;
+    font-size: 30px;
+    left: -20px;
+}
+
+.min {
+    color: #006400;
+}
+
+.max {
+    color: red;
+}
+
+thead {
+    position: relative;
+    left: -25px;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+button.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 370px;
+    height: 130px;
+    font-size: 40px;
+    font-weight: normal;
+    padding-top: 3px;
+    gap: 8px;
+    border: 0;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+}
+
+.warn-message {
+    font-size: 30px;
+    color: black;
+    background-color: #74eda4;
+    word-wrap: break-word;
+    width: 14em; /* définir la hauteur du saut de ligne */
+    overflow: hidden;
+    text-align: center;
+}
+
+.pin {
+    width: 50px;
+}

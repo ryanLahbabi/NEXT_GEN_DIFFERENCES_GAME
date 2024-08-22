@@ -1,0 +1,19 @@
+<div class="search-bar-container">
+    <div class="go-back" (click)="changeView()"></div>
+    <textarea
+        class="search-bar"
+        [(ngModel)]="text"
+        (keydown.enter)="onKeyDown($event)"
+        (keyup.enter)="search(gif.value)"
+        placeholder="Search GIF..."
+        required
+        >{{ text }}</textarea
+    >
+</div>
+<div class="gifs">
+    <div class="gif" *ngFor="let gif of gifs">
+        <button (click)="selectGif(gif)">
+            <img [src]="gif.images.downsized.url" (click)="getGifs()" (click)="selectGif(gif)" alt="Image" />
+        </button>
+    </div>
+</div>

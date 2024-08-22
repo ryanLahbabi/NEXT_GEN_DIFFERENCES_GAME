@@ -1,0 +1,93 @@
+<h1 class="title">Paramètres de jeu:</h1>
+<div class="params">
+    <table class="params-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>MIN</th>
+                <th>MAX</th>
+                <th>VALEUR</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Temps initial du compte à rebours (30sec par défaut):</td>
+                <td class="min">5</td>
+                <td class="max">120</td>
+                <td class="value-container" (input)="warnBadValue(userInputChrono.value, userInputPenalty.value, userInputGain.value)">
+                    <input
+                        #userInputChrono
+                        id="userInput"
+                        type="number"
+                        min="5"
+                        [value]="this.currentTimerTime"
+                        max="120"
+                        pattern="[0-9]*"
+                        oninput="this.value=Math.abs(this.value); "
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td>Temps de pénalité pour l'utilisation d'un indice (5sec par défaut):</td>
+                <td class="min">1</td>
+                <td class="max">30</td>
+                <td class="value-container" (input)="warnBadValue(userInputChrono.value, userInputPenalty.value, userInputGain.value)">
+                    <input
+                        #userInputPenalty
+                        id="userInput"
+                        type="number"
+                        min="1"
+                        [value]="this.currentPenaltyTime"
+                        max="30"
+                        [(ngModel)]="currentPenaltyTime"
+                        pattern="[0-9]*"
+                        oninput="this.value=Math.abs(this.value);   "
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td>Temps gagné avec la découverte d'une différence (5sec par défaut):</td>
+                <td class="min">1</td>
+                <td class="max">30</td>
+                <td class="value-container" (input)="warnBadValue(userInputChrono.value, userInputPenalty.value, userInputGain.value)">
+                    <input
+                        #userInputGain
+                        id="userInput"
+                        type="number"
+                        min="1"
+                        [value]="this.currentGainedTime"
+                        max="30"
+                        pattern="[0-9]*"
+                        oninput="this.value=Math.abs(this.value)"
+                    />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="buttons">
+    <button class="button" (click)="closeDialog()" style="background-color: #ecabbe">
+        <img class="pin" src="./assets/push_pin.png" />
+        Annuler
+    </button>
+    <div class="warn-message" *ngIf="!this.isInRange">Vous devez modifier les constantes de jeu, elles ne sont pas dans les portées indiqués !</div>
+    <div *ngIf="this.isInRange">
+        <button
+            class="button"
+            (click)="confirm(userInputChrono.value, userInputPenalty.value, userInputGain.value)"
+            style="background-color: #74eda4"
+        >
+            <img class="pin" src="./assets/push_pin.png" />
+            Sauvegarder
+        </button>
+    </div>
+    <button
+        class="button"
+        (click)="resetDefaultValues(); warnBadValue(userInputChrono.value, userInputPenalty.value, userInputGain.value)"
+        style="background-color: #ff5e5e"
+    >
+        <img class="pin" src="./assets/push_pin.png" />
+        Réinitialiser
+    </button>
+</div>

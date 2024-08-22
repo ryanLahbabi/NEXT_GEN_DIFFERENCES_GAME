@@ -1,0 +1,17 @@
+<app-top-bar [pageTitle]="'SELECTION_TIME_LIMITED' | translate" style="width: 100%"></app-top-bar>
+<div id="page-core" class="row">
+    <app-tabs>
+        <app-tab name="Créer ou rejoindre une partie" color="#FE86A3">
+            <div class="top">
+                <app-paper-button name=" {{ 'CREATE_GAME' | translate }}" id="create-btn" (click)="createGame()"></app-paper-button>
+                <h2>{{ 'OR_JOIN_AWAITING_GAMES' | translate }}:</h2>
+            </div>
+            <app-carousel-view [type]="carouselType.Timed"></app-carousel-view>
+        </app-tab>
+        <app-tab name="{{ 'OBSERVE_A_GAME_IN_PROGRESS' | translate }}" color="#a09bff">
+            <app-carousel-view [type]="carouselType.ObserveTimed"></app-carousel-view>
+        </app-tab>
+    </app-tabs>
+</div>
+
+<app-channel-toggle></app-channel-toggle>

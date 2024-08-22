@@ -1,0 +1,143 @@
+<!-- <div *ngIf="chatMode === 'embedded'">
+    <div class="main-chat-container">
+        <div class="chat-container">
+            <button class="ellipsis" (click)="openChatInNewWindow()"><mat-icon>more_horiz</mat-icon></button>
+            <div class="chat-avatar">
+                <div class="chat-image">
+                    <app-avatar class="chat-avatar"></app-avatar>
+                </div>
+            </div>
+            <button (click)="toggleChat()" class="chat-toggle-button">
+                <div class="chat-title">CHAT</div>
+            </button>
+            <button (click)="toggleChat()" class="chat-arrow">
+                <img src="assets/chat-arrow.png" alt="Toggle Chat" [class]="isArrow" />
+            </button>
+            <div class="chat-seperation"></div>
+        </div>
+        <div class="chat-content" *ngIf="isExpanded">
+            <div class="conversations-list" *ngIf="listorChannel">
+                <div class="conversations" *ngFor="let conversation of chatService.conversations">
+                    <div class="conversation-button" (click)="openConversation(conversation.id, conversation.name)">
+                        <div class="conversation">
+                            <svg class="conversation-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="grey" />
+                            </svg>
+                            <div class="conversation-details">
+                                <div class="conversation-title">{{ conversation.name }}</div>
+                                <div class="conversation-last-message">
+                                    {{ getLatestMessage(conversation) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="conversation-separateur"></div>
+                        <div class="main-chat-three-dots">
+                            <div [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="main-chat-three-dots-button">
+                                <mat-icon>more_vert</mat-icon>
+                            </div>
+                            <mat-menu #menu="matMenu">
+                                <button
+                                    mat-menu-item
+                                    *ngIf="!(conversation.host === this.accountService.currentUser?.username)"
+                                    (click)="leaveChannel(conversation.id)"
+                                >
+                                    <mat-icon>logout</mat-icon>
+                                    <span>{{ 'LEAVE_CHANNEL' | translate }}</span>
+                                </button>
+                                <button
+                                    mat-menu-item
+                                    (click)="deleteChannel(conversation.id)"
+                                    *ngIf="conversation.host === this.accountService.currentUser?.username"
+                                >
+                                    <mat-icon>delete</mat-icon>
+                                    <span>{{ 'DELETE_CHANNEL' | translate }}</span>
+                                </button>
+                            </mat-menu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="conversations-channel" *ngIf="!listorChannel">
+                <div class="">list of all channels</div>
+                <div class="conversations-search-bar-container">
+                    <input type="text" placeholder="{{ 'SEARCH_CHANNEL' | translate }}..." [(ngModel)]="searchQuery" class="conversations-search-bar" />
+                </div>
+                <div class="channels-card" *ngFor="let allchannels of filteredChannels">
+                    <div class="">Channel: {{ allchannels.name }}</div>
+                    <div class="">{{ 'HOST' | translate }}: {{ allchannels.host }}</div>
+                    <div class="channels-button-list" (click)="joinChannel(allchannels.id, allchannels.name || '', allchannels.host || '')">
+                        {{ 'JOIN_CHANNEL' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="chat-request-container">
+                <!-- <div class="create-channel">
+                    <a
+                        class="ask-friends"
+                        (click)="requestFriendsAdding()"
+                        (click)="this.friendService.isAFriend(this.accountService.currentUser?.username)"
+                        (click)="this.friendService.isPending(this.accountService.currentUser?.username)"
+                        (click)="this.friendService.updateFriendsFounded()"
+                        draggable="false"
+                    >
+                        <img src="./assets/search_friends.png" />
+                    </a>
+                </div>
+                <div class="create-channel">
+                    <img src="./assets/ask_friend.jpg" (click)="requestFriendsDemands()" class="create-channel-button" />
+                </div> 
+                <div class="create-channel" (click)="toggleChannel()">
+                    <img src="./assets/add (1).png" class="create-channel-button" />
+                </div>
+                <div class="create-channel" (click)="toggleAllChannel()">
+                    <img src="./assets/join.png" class="create-channel-button" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chatbox-container">
+        <div class="chatbox" *ngFor="let conversationId of openConversations">
+            <div class="chatbox-nav">
+                <button class="conversation-close-box" (click)="closeConversation(conversationId.id)">
+                    <img src="assets/close-1.png" alt="Toggle Chat" class="conversation-button" />
+                </button>
+                <div class="chatbox-conversation-title">{{ conversationId.name }}</div>
+            </div>
+            <div class="chatbox__messages" *ngIf="isExpanded">
+                <div *ngFor="let message of chatService.getMessages(conversationId.id)" class="message-original-color">
+                    <div class="message__time">{{ message.timestamp | date: 'dd/MM/yyyy HH:mm:ss' }}</div>
+                    <div
+                        *ngIf="message.sender === accountService.currentUser?.username"
+                        class="message__received"
+                        [innerHTML]="message.message"
+                    ></div>
+                    <div *ngIf="message.sender !== accountService.currentUser?.username" class="message__text" [innerHTML]="message.message"></div>
+                </div>
+            </div>
+
+            <div style="display: contents" *ngIf="isExpanded">
+                <input
+                    class="chatbox__input"
+                    placeholder="{{ 'ENTER_YOUR_MESSAGE' | translate }}"
+                    type="text"
+                    id="message-input"
+                    (focus)="chatService.onFocus()"
+                    (focusout)="chatService.onFocusOut()"
+                    maxlength="200"
+                />
+            </div>
+            <button src="./assets/GIF.png" class="chatbox__gif-logo" (click)="toggleGifComponent()" alt="GIF">
+                <img src="./assets/GIF.png" class="gif-icon" alt="GIF" />
+            </button>
+        </div>
+        <div class="main-chat-channel-widget-creation" *ngIf="isChannel">
+            <div>{{ 'CREATE_NEW_CHANNEL' | translate }}</div>
+            <div class="channel-widget-input">{{ 'CHANNEL_NAME' | translate }}: <input type="text" #channelInput /></div>
+            <div class="channel-widget-button-container">
+                <button class="channel-widget-button" (click)="createChannel(channelInput.value)">{{ 'CREATE_CHANNEL' | translate }}</button>
+                <button class="channel-widget-button" (click)="toggleChannel()">{{ 'CLOSE' | translate }}</button>
+            </div>
+        </div>
+    </div>
+    <app-gif *ngIf="showGifComponent" [id]="openConversations[0].id"></app-gif>
+</div> -->

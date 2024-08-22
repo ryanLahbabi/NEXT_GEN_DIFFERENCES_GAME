@@ -1,0 +1,160 @@
+[
+    {
+        "prefix": "User",
+        "errors": [
+            {
+                "name": "BIOGRAPHY_TOO_LONG",
+                "message": "A biography is limited to 'Θ' characters (< Θ = current biography length)."
+            },
+            {
+                "name": "USER_ALREADY_CONNECTED",
+                "message": "User 'Θ' is already logged in."
+            },
+            {
+                "name": "USER_NOT_FOUND",
+                "message": "Could not find a user named 'Θ'"
+            },
+            {
+                "name": "CANNOT_BLOCK_ONESELF",
+                "message": "User 'Θ' cannot block (or unblock) himself."
+            },
+            {
+                "name": "CANNOT_UNBLOCK_ONESELF",
+                "message": "User 'Θ' cannot unblock (or block) himself."
+            },
+            {
+                "name": "USER_ALREADY_BLOCKED",
+                "message": "User 'Θ' is already blocked."
+            },
+            {
+                "name": "USER_NOT_BLOCKED",
+                "message": "User 'Θ' is not blocked."
+            },
+            {
+                "name": "CANNOT_BEFRIEND_ONESELF",
+                "message": "User 'Θ' cannot send himself a friend request."
+            },
+            {
+                "name": "RESPONDING_TO_HIMSELF",
+                "message": "User 'Θ' cannot set himself as the target of a friend request response."
+            },
+            {
+                "name": "FRIEND_REQUEST_NOT_FOUND",
+                "message": "User 'Θ' did not receive a friend request from 'Θ'."
+            },
+            {
+                "name": "CANNOT_SEND_FRIEND_REQUEST_IF_BLOCKED",
+                "message": "User 'Θ' cannot send 'Θ' a friend request as one or both of them have blocked the other."
+            }
+        ]
+    },
+    {
+        "prefix": "Misc",
+        "errors": [
+            {
+                "name": "UNKNOWN",
+                "message": ""
+            }
+        ]
+    },
+    {
+        "prefix": "Auth",
+        "errors": [
+            {
+                "name": "USERNAME_IN_USE",
+                "message": ""
+            },
+            {
+                "name": "EMAIL_IN_USE",
+                "message": ""
+            },
+            {
+                "name": "INVALID_TOKEN",
+                "message": "Token is invalid and should be discarded."
+            },
+            {
+                "name": "UNDEFINED_TOKEN",
+                "message": "No token was given in the required fields, please provide a valid one."
+            },
+            {
+                "name": "MULTIPLE_CONNECTIONS",
+                "message": "User 'Θ' is already connected on another device."
+            },
+            {
+                "name": "SOCKET_CONNECTION_REQUIRED",
+                "message": "User 'Θ' has to be connected to a socket before communicating further."
+            }
+        ]
+    },
+    {
+        "prefix": "Chan",
+        "errors": [
+            {
+                "name": "CANNOT_DELETE_GLOBAL_CHANNEL",
+                "message": "Channel 'Θ' cannot be deleted."
+            },
+            {
+                "name": "CANNOT_DELETE_CHANNEL",
+                "message": "User 'Θ' cannot delete channel 'Θ' as he is not the host."
+            },
+            {
+                "name": "CHANNEL_NOT_FOUND",
+                "message": "Channel 'Θ' does not exist."
+            },
+            {
+                "name": "USER_ALREADY_IN_CHANNEL",
+                "message": "User 'Θ' cannot join channel 'Θ' as he is already a part of it."
+            },
+            {
+                "name": "USER_NOT_IN_CHANNEL",
+                "message": "User 'Θ' cannot perform this action in channel 'Θ' since he has not joined it."
+            }
+        ]
+    },
+    {
+        "prefix": "Game",
+        "errors": [
+            {
+                "name": "COORDINATES_OUT_OF_BOUND",
+                "message": "Θ coordinates are out of bounds."
+            },
+            {
+                "name": "BAD_GAMEMODE",
+                "message": "GameMode 'Θ' does not exist or is not allowed."
+            },
+            {
+                "name": "GAME_NOT_FOUND",
+                "message": "Game 'Θ' does not exist."
+            },
+            {
+                "name": "NOT_ENOUGH_PLAYERS",
+                "message": "Game 'Θ' does not meet the minimum number of players (Θ < 2)."
+            },
+            {
+                "name": "PLAYER_NOT_IN_GAME",
+                "message": "Player with id 'Θ' was not found in game 'Θ'."
+            },
+            {
+                "name": "CURRENT_DOWNTIME",
+                "message": "Player with id 'Θ' cannot perform an action as he is on downtime."
+            },
+            {
+                "name": "WRONG_GAMEMODE",
+                "message": "Action not permitted on a 'Θ' (only 'Θ')."
+            },
+            {
+                "name": "UNAUTHORIZED_ACTION",
+                "message": "Action not permitted as player with id 'Θ' is not the host."
+            }
+        ]
+    },
+    {
+        "prefix": "Card",
+        "errors": [
+            {
+                "name": "CARD_DOES_NOT_EXIST",
+                "message": "Card with id 'Θ' does not exist."
+            }
+        ]
+    }
+]

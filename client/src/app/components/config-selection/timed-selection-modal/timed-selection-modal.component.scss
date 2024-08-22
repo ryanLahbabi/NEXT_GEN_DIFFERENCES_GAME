@@ -1,0 +1,57 @@
+:host {
+    box-sizing: border-box;
+    background-color: #e67add;
+    padding: 25px 45px;
+    margin: auto;
+    position: relative;
+    min-width: fit-content;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.green-push-pin {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.buttons {
+    position: relative;
+    justify-content: center;
+    gap: 80px;
+}
+
+.buttons > .row {
+    width: fit-content;
+    gap: 15px;
+}
+
+app-paper-button {
+    width: 120px;
+    height: 45px;
+}
+
+.row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.top {
+    top: -0.5%;
+}
+
+.bottom {
+    bottom: 0.5%;
+}
+
+.left {
+    left: 0.5%;
+}
+
+.right {
+    right: -0.5%;
+}

@@ -1,0 +1,127 @@
+<app-top-bar [pageTitle]="'Compte'"></app-top-bar>
+<div class="container">
+    <div class="colored-card">
+        <img id="pin" src="./assets/push_pin.png" draggable="false" />
+        <div class="row">
+            <app-avatar outlineColor="black"></app-avatar>
+            <div class="col">
+                <h2>{{ this.accountService.currentUser?.username }}</h2>
+                <h3 class="elo">{{ 'ELO' | translate }} {{ this.accountService.currentUser?.elo }}</h3>
+                <button class="logout-button" (click)="logOut()">{{ 'DISCONNECT' | translate }}</button>
+            </div>
+            <div class="col bio-column">
+                <fieldset>
+                    <legend>
+                        <h3>{{ 'ABOUT' | translate }}:</h3>
+                    </legend>
+                    <p class="biography">
+                        {{ this.accountService.currentUser?.biography }}
+                    </p>
+                </fieldset>
+            </div>
+        </div>
+        <mat-tab-group class="stats-container" mat-stretch-tabs>
+            <mat-tab label="{{ 'GENERAL_GAME_DATA' | translate }}">
+                <div class="stats-tab">
+                    <div class="col">
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ this.accountService.currentUser?.generalGameStatistics?.generalGameData?.gamesPlayed }}
+                            </div>
+                            <div class="account-stats-title">{{ 'NUMBER_OF_PLAYED_GAME' | translate }}</div>
+                        </div>
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ round(this.accountService.currentUser?.generalGameStatistics?.generalGameData?.averageDifferencesFound) }}
+                            </div>
+                            <div class="account-stats-title">{{ 'AVERAGE_FOUND_DIFFERENCES' | translate }}</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ this.accountService.currentUser?.generalGameStatistics?.generalGameData?.gamesWinned }}
+                            </div>
+                            <div class="account-stats-title">{{ 'NUMBER_OF_GAME_WON' | translate }}</div>
+                        </div>
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ round(this.accountService.currentUser?.generalGameStatistics?.generalGameData?.averageTimePlayed) }}
+                            </div>
+                            <div class="account-stats-title">{{ 'AVERAGE_GAME_TIME' | translate }}</div>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="{{ 'CLASSIC_GAME_DATA' | translate }}">
+                <div class="stats-tab">
+                    <div class="col">
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ this.accountService.currentUser?.generalGameStatistics?.classicDeathMatch?.gamesPlayed }}
+                            </div>
+                            <div class="account-stats-title">{{ 'NUMBER_OF_PLAYED_GAME' | translate }}</div>
+                        </div>
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ round(this.accountService.currentUser?.generalGameStatistics?.classicDeathMatch?.averageDifferencesFound) }}
+                            </div>
+                            <div class="account-stats-title">{{ 'AVERAGE_FOUND_DIFFERENCES' | translate }}</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ this.accountService.currentUser?.generalGameStatistics?.classicDeathMatch?.gamesWinned }}
+                            </div>
+                            <div class="account-stats-title">{{ 'NUMBER_OF_GAME_WON' | translate }}</div>
+                        </div>
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ round(this.accountService.currentUser?.generalGameStatistics?.classicDeathMatch?.averageTimePlayed) }}
+                            </div>
+                            <div class="account-stats-title">{{ 'AVERAGE_GAME_TIME' | translate }}</div>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="{{ 'TIMED_GAME_DATA' | translate }}">
+                <div class="stats-tab">
+                    <div class="col">
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ this.accountService.currentUser?.generalGameStatistics?.limitedTimeDeathMatch?.gamesPlayed }}
+                            </div>
+                            <div class="account-stats-title">{{ 'NUMBER_OF_PLAYED_GAME' | translate }}</div>
+                        </div>
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ round(this.accountService.currentUser?.generalGameStatistics?.limitedTimeDeathMatch?.averageDifferencesFound) }}
+                            </div>
+                            <div class="account-stats-title">{{ 'AVERAGE_FOUND_DIFFERENCES' | translate }}</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ this.accountService.currentUser?.generalGameStatistics?.limitedTimeDeathMatch?.gamesWinned }}
+                            </div>
+                            <div class="account-stats-title">{{ 'NUMBER_OF_GAME_WON' | translate }}</div>
+                        </div>
+                        <div class="account-statistic">
+                            <div class="account-stats">
+                                {{ round(this.accountService.currentUser?.generalGameStatistics?.limitedTimeDeathMatch?.averageTimePlayed) }}
+                            </div>
+                            <div class="account-stats-title">{{ 'AVERAGE_GAME_TIME' | translate }}</div>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="{{ 'REPLAY' | translate }}">
+                <app-replay-list></app-replay-list>
+            </mat-tab>
+        </mat-tab-group>
+        <button class="edit-button" routerLink="/edit-profile">{{ 'EDIT_PROFILE' | translate }}</button>
+    </div>
+</div>
+<app-channel-toggle></app-channel-toggle>

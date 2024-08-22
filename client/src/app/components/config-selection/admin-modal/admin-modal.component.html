@@ -1,0 +1,13 @@
+<h3>{{ 'ADMIN_MODAL' | translate }}:</h3>
+<form (ngSubmit)="submitPassword(userInput.value)">
+    <input #userInput id="userInput" type="password" value="" />
+</form>
+<div class="row buttons">
+    <app-paper-button name="{{ 'CANCEL' | translate }}" (click)="closeDialog()"></app-paper-button>
+    <app-paper-button name="{{ 'CONFIRM' | translate }}" (click)="submitPassword(userInput.value)"></app-paper-button>
+</div>
+<img class="green-push-pin top left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin top right" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom left" src="./assets/green_pin.png" draggable="false" />
+<img class="green-push-pin bottom right" src="./assets/green_pin.png" draggable="false" />
+<p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>

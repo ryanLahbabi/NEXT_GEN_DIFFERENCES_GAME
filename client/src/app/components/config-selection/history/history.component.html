@@ -1,0 +1,29 @@
+<div id="top">
+    <app-post-it class="button" name="Retour" (click)="closeDialog()"></app-post-it>
+    <h2>Historique des parties jouées:</h2>
+    <app-post-it class="button" name="Effacer l'historique" (click)="resetHistory()"></app-post-it>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Début</th>
+            <th>Durée</th>
+            <th>Mode de jeu</th>
+            <th>Joueur 1</th>
+            <th>Joueur 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let game of historyService.gamesHistory" class="rows">
+            <td class="beginning">{{ game.beginning }}</td>
+            <td class="duration">{{ game.duration.minutes }} min {{ game.duration.seconds }} sec</td>
+            <td class="game-mode">{{ game.gameMode }}</td>
+            <td [ngClass]="{ winner_1: game.winner1, name_1: !game.winner1 && !game.deserter1, deserter_1: game.deserter1 }">
+                {{ game.player1 }}
+            </td>
+            <td [ngClass]="{ winner_2: game.winner2, name_2: !game.winner2 && !game.deserter2, deserter_2: game.deserter2 }">
+                {{ game.player2 }}
+            </td>
+        </tr>
+    </tbody>
+</table>

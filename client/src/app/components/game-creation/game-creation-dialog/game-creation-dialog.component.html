@@ -1,0 +1,38 @@
+<div id="main-zone" class="row">
+    <div id="left-zone">
+        <div class="row">
+            <p class="label">{{ 'NUMBER_OF_DIFFERENCES' | translate }}:</p>
+            <p class="value">{{ data.nbDifferences }}</p>
+        </div>
+        <div class="row">
+            <p class="label">{{ 'LEVEL_DIFFICULTY' | translate }}:</p>
+            <p *ngIf="data.valid" class="value">{{ data.difficulty }}</p>
+        </div>
+        <div class="row">
+            <p class="label" for="gameName" class="label">{{ 'GAME_NAME' | translate }}:</p>
+            <p class="value"><input type="text" [disabled]="!data.valid" name="gameName" #nameInput /></p>
+        </div>
+    </div>
+    <div class="right-zone">
+        <p class="label">{{ 'DIFFERENCES' | translate }}:</p>
+        <img
+            [attr.width]="imgWidth"
+            [attr.height]="imgHeight"
+            [src]="data.differenceImage | safeResourceUrl"
+            alt="Image de différences"
+            draggable="false"
+        />
+    </div>
+</div>
+<div *ngIf="data.valid" class="buttons-zone">
+    <app-paper-button (click)="cancel()" name="{{ 'CANCEL' | translate }}"></app-paper-button>
+    <app-paper-button (click)="confirm(nameInput.value)" name="{{ 'CONFIRM' | translate }}"></app-paper-button>
+</div>
+
+<div *ngIf="!data.valid" class="error-zone">
+    <div class="error-message">
+        <p>{{ 'CREATION_ERROR' | translate }}</p>
+        <p>{{ 'BACK_TO_CORRECT' | translate }}</p>
+    </div>
+    <app-paper-button (click)="cancel()" name="{{'BACK' | translate}}"></app-paper-button>
+</div>

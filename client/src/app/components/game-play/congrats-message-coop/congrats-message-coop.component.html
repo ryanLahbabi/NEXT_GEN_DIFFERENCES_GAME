@@ -1,0 +1,15 @@
+<div class="congrats-container">
+    <div class="congrats-message">
+        <h1 id="winner">{{ winner.name }}</h1>
+        <h3>{{ 'HAS_WON' | translate }}!</h3>
+        <h3 class="record-beater">{{ chatService.recordBeaterMessage }}</h3>
+    </div>
+    <img *ngIf="isWinner || data.isObserving" class="congrats" [src]="congratsWinnerPath" draggable="false" />
+    <img *ngIf="!isWinner && !data.isObserving" class="congrats"[src]="congratsLoserPath" draggable="false" />
+
+    <div *ngIf="data.replayIsAvailable" class="row side-by-side">
+        <app-post-it name="{{ 'LAUNCH_VIDEO_REPLAY' | translate }}" class="replay-post-it post-it" (click)="closePopup(true)"></app-post-it>
+        <app-post-it name="{{ 'CLOSE' | translate }}" class="close-post-it post-it" (click)="closePopup(false)"></app-post-it>
+    </div>
+    <app-post-it name="{{ 'CLOSE' | translate }}" *ngIf="!data.replayIsAvailable" class="close-post-it post-it" (click)="closePopup(false)"></app-post-it>
+</div>

@@ -1,0 +1,1 @@
+export const ERROR_VISIBILITY_TIME = 5000;

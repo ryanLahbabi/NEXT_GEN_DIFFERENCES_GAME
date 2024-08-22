@@ -1,0 +1,40 @@
+<div class="chat-window-container">
+    <div class="chat-window">
+        <div class="sidebar">
+            <div class="conversations-header">🗨️ Conversations</div>
+            <div class="conversations-list">
+                <div *ngFor="let conversation of chatService.conversations" class="conversation-item">
+                    <div class="conversation-title">👥 {{ conversation.name }}</div>
+                    <div class="conversation-last-message">{{ conversation.messages[0] }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="messages-display">
+                <div *ngFor="let message of chatService.messagesMainPage" class="message">
+                    <div class="message-time">⏰ {{ message.timestamp }}</div>
+                    <!-- <div *ngIf="message.messageReceived && !message.isAGIF" class="message__received">{{ message.sender }}: {{ message.message }}</div>
+                <div *ngIf="!message.messageReceived && !message.isAGIF" class="message__text">{{ message.sender }}: {{ message.message }}</div>
+                <div  *ngIf="message.isAGIF" [innerHTML]="getGifImage(message.message)" class="message__gif" > {{ message.sender }}: </div> -->
+                </div>
+            </div>
+            <app-gif *ngIf="showGifComponent"></app-gif>
+
+            <div class="message-input-container">
+                <input
+                    class="message-input"
+                    placeholder="✏️ {{'ENTER_YOUR_MESSAGE' | translate}}..."
+                    type="text"
+                    [(ngModel)]="chatService.inputValue"
+                    (focus)="chatService.onFocus()"
+                    (focusout)="chatService.onFocusOut()"
+                />
+            </div>
+            <button src="./assets/GIF.png" class="chatbox__gif-logo" (click)="toggleGifComponent()" alt="GIF">
+                <img src="./assets/GIF.png" class="gif-icon" alt="GIF" />
+            </button>
+        </div>
+    </div>
+    <button class="resize-button" (click)="windowService.closeWindow()">{{'RESIZE_CHAT' | translate}}</button>
+</div>
